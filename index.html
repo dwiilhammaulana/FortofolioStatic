@@ -1,0 +1,1343 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Kreatif - Fotografer, Desainer Grafis & Web Developer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Variabel CSS */
+        :root {
+            --primary: #2d3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #f8f9fa;
+            --dark: #2c3e50;
+            --text: #333;
+            --glass-bg: rgba(255, 255, 255, 0.8);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --transition: all 0.3s ease;
+        }
+
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background: var(--secondary);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 14px;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+        }
+
+        .btn:hover {
+            background: #2980b9;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(52, 152, 219, 0.4);
+        }
+
+        .section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.5rem;
+            color: var(--primary);
+            position: relative;
+        }
+.section-desc {
+    font-size: 18px;
+    color: #0d1a2b;     /* hitam kebiruan tua elegan */
+    margin: 10px auto 40px;
+    text-align: center;
+    line-height: 1.6;
+    font-weight: bold;  /* teks tebal */
+    max-width: 700px;   /* biar fokus, tidak kepanjangan */
+}
+
+
+
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--secondary);
+            border-radius: 2px;
+        }
+        
+
+        /* Glassmorphism Effect */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            padding: 25px;
+            transition: var(--transition);
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--glass-border);
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        .nav-menu {
+            display: flex;
+        }
+
+        .nav-item {
+            margin-left: 30px;
+        }
+
+        .nav-link {
+            font-weight: 600;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover {
+            color: var(--secondary);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 200%;
+            background: linear-gradient(45deg, rgba(52, 152, 219, 0.1) 0%, rgba(255, 255, 255, 0.2) 100%);
+            transform: rotate(15deg);
+            z-index: -1;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .hero-text {
+            max-width: 600px;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+            animation: fadeInDown 1s ease;
+        }
+
+        .hero-title span {
+            color: var(--secondary);
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            color: var(--dark);
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-cta {
+            animation: fadeIn 1.5s ease;
+        }
+
+       .hero-image {
+    position: relative;
+    animation: float 6s ease-in-out infinite;
+    display: flex;
+    justify-content: center; /* posisikan tengah */
+}
+
+.hero-img {
+    border-radius: 20px;
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.2);
+    width: 300px;       /* ubah sesuai kebutuhan */
+    max-width: 200%;    
+    height: auto;       
+    margin-left: 40px;  /* geser sedikit ke kanan */
+}
+
+
+
+        /* Skills Section */
+        .skills {
+            background: white;
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-category {
+            padding: 30px;
+            border-radius: 16px;
+            background: var(--light);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .skill-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 15px;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .photography .skill-icon {
+            background: #9b59b6;
+        }
+
+        .design .skill-icon {
+            background: #e74c3c;
+        }
+
+        .development .skill-icon {
+            background: #3498db;
+        }
+
+        .skill-title {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .skill-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+        }
+
+        .skill-item {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+
+        .skill-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-name {
+            font-weight: 600;
+            margin-top: 10px;
+            color: var(--dark);
+        }
+
+        /* Photography Section */
+        .photography {
+            background: var(--light);
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .photo-item {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            height: 300px;
+        }
+
+        .photo-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .photo-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .photo-item:hover .photo-img {
+            transform: scale(1.1);
+        }
+
+        .photo-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,255,0.5); /* <-- ini bikin biru */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: var(--transition);
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .photo-item:hover .photo-overlay {
+            opacity: 1;
+        }
+
+        .photo-title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            transform: translateY(0px);
+            transition: var(--transition);
+        }
+
+        .photo-item:hover .photo-title {
+            transform: translateY(0);
+        }
+
+.photo-desc {
+    transform: translateY(20px);
+    transition: var(--transition);
+    margin-bottom: 50px;
+    text-align: center; /* bikin teksnya rata tengah */
+}
+
+
+        .photo-item:hover .photo-desc {
+            transform: translateY(0);
+        }
+
+        /* Design Section */
+        .design-section {
+            background: white;
+        }
+
+        .design-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .design-item {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            height: 300px;
+        }
+
+        .design-item:hover {
+            transform: translateY(-10px) rotate(2deg);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .design-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .design-item:hover .design-img {
+            transform: scale(1.1);
+        }
+
+        .design-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(231, 76, 60, 0.9);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: var(--transition);
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .design-item:hover .design-overlay {
+            opacity: 1;
+        }
+
+        /* Development Section */
+        .development {
+            background: var(--light);
+        }
+
+        .dev-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .dev-item {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            height: 300px;
+        }
+
+        .dev-item:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .dev-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .dev-item:hover .dev-img {
+            transform: scale(1.1);
+        }
+
+        .dev-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(52, 152, 219, 0.9);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: var(--transition);
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .dev-item:hover .dev-overlay {
+            opacity: 1;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 50px 0 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .footer-logo span {
+            color: var(--secondary);
+        }
+
+        .social-links {
+            display: flex;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 10px;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background: var(--secondary);
+            transform: translateY(-5px);
+        }
+
+        .footer-heading {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-heading::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--secondary);
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+            padding-left: 5px;
+        }
+
+        .copyright {
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Back to Top */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--secondary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 999;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from { 
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from { 
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .hero-title {
+                font-size: 2.8rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background: var(--glass-bg);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transition: var(--transition);
+                z-index: 999;
+                border-left: 1px solid var(--glass-border);
+            }
+            
+            .nav-menu.active {
+                right: 0;
+            }
+            
+            .nav-item {
+                margin: 15px 0;
+            }
+            
+            .nav-link {
+                color: var(--primary);
+                font-size: 1.2rem;
+            }
+            
+            .hamburger {
+                display: block;
+                z-index: 1000;
+            }
+            
+            .hamburger i {
+                font-size: 1.8rem;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        /* Overlay full layar */
+.lightbox {
+    display: none;
+    position: fixed;
+    inset: 0; /* atas, kanan, bawah, kiri = 0 */
+    background: rgba(0, 0, 0, 0.9); /* gelap */
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Gambar di tengah */
+.lightbox-content {
+    max-width: 95vw;
+    max-height: 95vh;
+    border-radius: 8px;
+    box-shadow: 0 0 25px rgba(0,0,0,0.6);
+    animation: zoomIn 0.3s ease-in-out;
+}
+
+/* Tombol close (X) */
+.lightbox .close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.lightbox .close:hover {
+    color: #aaa;
+}
+.logo {
+  display: flex;          /* bikin logo + teks sejajar */
+  align-items: center;    /* logo rata tengah dengan teks */
+  font-size: 24px;        /* ukuran teks */
+  font-weight: bold;
+  text-decoration: none;
+  color: #000;
+}
+
+.logo-img {
+  height: 24px;           /* kira2 sama tinggi dengan teks */
+  width: auto;
+  margin-right: 8px;      /* jarak antara logo dan teks */
+}
+
+
+
+/* Animasi */
+@keyframes zoomIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to   { transform: scale(1); opacity: 1; }
+}
+
+
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .btn {
+                padding: 10px 20px;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+            
+            .photo-grid,
+            .design-grid,
+            .dev-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skill-list {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            
+        }
+    </style>
+      <link rel="icon" type="image/png" href="dwi logo.png">
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header id="header">
+        <div class="container nav-container">
+<a href="#" class="logo">
+    <img src="dwi logo.png" alt="Logo" class="logo-img">
+    <span>Wilana<span>.</span></span>
+</a>
+
+
+              
+            
+            <div class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+            
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="#photography" class="nav-link">Fotografi</a></li>
+                <li class="nav-item"><a href="#design" class="nav-link">Desain Grafis</a></li>
+                <li class="nav-item"><a href="#development" class="nav-link">Web Development</a></li>
+                <li class="nav-item"><a href="#contact" class="nav-link">Kontak</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">Hi, I'm <span>Dwi Ilham Maulana</span></h1>
+                <p class="hero-subtitle">Fotografer, Desainer Grafis & Web Developer</p>
+                <div class="hero-cta">
+                    <a href="#photography" class="btn">Lihat Karya Saya</a>
+                </div>
+            </div>
+            
+            <div class="hero-image">
+    <img src="ilham.png" alt="Profile Picture" class="hero-img">
+</div>
+
+        </div>
+    </section>
+      <!-- Skills Section -->
+    <section class="section skills" id="skills">
+        <div class="container">
+            <h2 class="section-title">Skills & Tools</h2>
+            
+            <div class="skills-container">
+                <!-- Photography Skills -->
+                <div class="skill-category photography">
+                    <div class="skill-header">
+                        <div class="skill-icon">
+                            <i class="fas fa-camera"></i>
+                        </div>
+                        <h3 class="skill-title">Fotografi</h3>
+                    </div>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <i class="fas fa-camera-retro fa-2x"></i>
+                            <div class="skill-name">DSLR Cannon 3000D</div>
+                        </div>
+                        <div class="skill-item">
+                        <i class="fas fa-search fa-2x"></i>
+                        <div class="skill-name">Lensa Fix & Kit</div>
+                    </div>
+                        <div class="skill-item">
+                            <i class="fas fa-sliders-h fa-2x"></i>
+                            <div class="skill-name">Adobe Lightroom</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Design Skills -->
+                <div class="skill-category design">
+                    <div class="skill-header">
+                        <div class="skill-icon">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <h3 class="skill-title">Desain Grafis</h3>
+                    </div>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <i class="fas fa-image fa-2x"></i> <!-- Cocok untuk Photoshop -->
+                            <div class="skill-name">Adobe Photoshop</div>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-draw-polygon fa-2x"></i> <!-- Cocok untuk CorelDRAW -->
+                            <div class="skill-name">Corel Draw</div>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-object-group fa-2x"></i> <!-- Cocok untuk Canva -->
+                            <div class="skill-name">Canva</div>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <!-- Development Skills -->
+                <div class="skill-category development">
+                    <div class="skill-header">
+                        <div class="skill-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3 class="skill-title">Web Development</h3>
+                    </div>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <i class="fab fa-html5 fa-2x"></i>
+                            <div class="skill-name">HTML5</div>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-css3-alt fa-2x"></i>
+                            <div class="skill-name">CSS3</div>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-js-square fa-2x"></i>
+                            <div class="skill-name">JavaScript</div>
+                        </div>
+ 
+                        <div class="skill-item">
+                            <i class="fab fa-php fa-2x"></i>
+                            <div class="skill-name">PHP</div>
+                        </div>
+
+                        <div class="skill-item">
+                            <i class="fas fa-database fa-2x"></i>
+                            <div class="skill-name">MySQL</div>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-code fa-2x"></i>
+                            <div class="skill-name">Laravel</div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photography Section -->
+    <section class="section photography" id="photography">
+        <div class="container">
+            <h2 class="section-title">Karya Fotografi</h2>
+            <p class="section-desc">Berikut merupakan sebagian hasil karya fotografi yang telah saya dokumentasikan</p>
+            <div class="photo-grid">
+                <!-- Photo Item 1 -->
+                <div class="photo-item glass-card">
+                    <img src="image/image_1.JPG" alt="Concert Photography" class="photo-img">
+                    <div class="photo-overlay">
+                        <h3 class="photo-title">HUT RI 80</h3>
+                        <p class="photo-desc">Dokumentasi upacara dengan pencahayaan dinamis</p>
+                        <a href="#" class="btn view-image" data-img="image/image_1.JPG">Lihat Detail</a>
+                    </div>
+                </div>                
+             <!-- Photo Item 2 -->
+                <div class="photo-item glass-card">
+                    <img src="image/image_2.JPG" alt="Concert Photography" class="photo-img">
+                    <div class="photo-overlay">
+                        <h3 class="photo-title">HUT RI 80</h3>
+                        <p class="photo-desc">Dokumentasi upacara dengan pencahayaan dinamis</p>
+                        <a href="#" class="btn view-image" data-img="image/image_2.JPG">Lihat Detail</a>
+                    </div>
+                </div>
+
+<!-- Overlay / Lightbox -->
+<div id="lightbox" class="lightbox">
+    <span class="close">&times;</span>
+    <img class="lightbox-content" id="lightbox-img">
+</div>
+
+                
+                <!-- Photo Item 3 -->
+                <div class="photo-item glass-card">
+                    <img src="image/image_4.JPG" alt="Concert Photography" class="photo-img">
+                    <div class="photo-overlay">
+                        <h3 class="photo-title">HUT RI 80</h3>
+                        <p class="photo-desc">Dokumentasi upacara dengan pencahayaan dinamis</p>
+                        <a href="#" class="btn view-image" data-img="image/image_4.JPG">Lihat Detail</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Design Section -->
+<section class="section design" id="design">
+    <div class="container">
+        <h2 class="section-title">Desain Grafis</h2>
+        <p class="section-desc">Berikut adalah sebagian design yang telah saya buat selama bekerja di PT. Tulip Tonata Indonesia.</p>
+
+            <div class="design-grid">
+                <!-- Design Item 1 -->
+                <div class="design-item glass-card">
+                    <img src="image/image_15.jpg" alt="Logo Design" class="design-img">
+                    <div class="design-overlay">
+                        <h3 class="photo-title">Desain Logo</h3>
+                        <p class="photo-desc">Logo pribadi ini dirancang sebagai identitas visual resmi kami.</p>
+                        <a href="#" class="btn view-image" data-img="image/image_15.JPG">Lihat Detail</a>
+                    </div>
+                </div>
+                <!-- Design Item 1 -->
+                <div class="design-item glass-card">
+                    <img src="image/image_6.JPG" alt="Logo Design" class="design-img">
+                    <div class="design-overlay">
+                        <h3 class="photo-title">Desain Campign</h3>
+                        <p class="photo-desc">Project PT Tulip Tonata Indonesia – hasil desain saat bekerja sebagai karyawan.</p>
+                        <a href="#" class="btn view-image" data-img="image/image_6.JPG">Lihat Detail</a>
+                    </div>
+                </div>
+                
+                <!-- Design Item 2 -->
+                <div class="design-item glass-card">
+                    <img src="image/image_7.JPG" alt="Branding Design" class="design-img">
+                    <div class="design-overlay">
+                        <h3 class="photo-title">Desain Campign</h3>
+                        <p class="photo-desc">Project PT Tulip Tonata Indonesia – hasil desain saat bekerja sebagai karyawan.</p>
+                        <a href="#" class="btn view-image" data-img="image/image_7.JPG">Lihat Detail</a>
+                    </div>
+                </div>
+                <!-- Design Item 2 -->
+                <div class="design-item glass-card">
+                    <img src="image/image_8.JPG" alt="Branding Design" class="design-img">
+                    <div class="design-overlay">
+                        <h3 class="photo-title">Ucapan</h3>
+                        <p class="photo-desc">Project PT Tulip Tonata Indonesia – hasil desain saat bekerja sebagai karyawan.</p>
+                        <a href="#" class="btn view-image" data-img="image/image_8.JPG">Lihat Detail</a>
+                    </div>
+                </div>
+<div class="design-item glass-card">
+    <img src="image/image_9.JPG" alt="Branding Design" class="design-img">
+    <div class="design-overlay">
+        <h3 class="photo-title">Desain Gratis Ongkir</h3>
+        <p class="photo-desc">Project PT Tulip Tonata Indonesia – hasil desain saat bekerja sebagai karyawan.</p>
+        <a href="#" class="btn view-image" data-img="image/image_9.JPG">Lihat Detail</a>
+    </div>
+</div>
+
+<div class="design-item glass-card">
+    <img src="image/image_10.JPG" alt="Branding Design" class="design-img">
+    <div class="design-overlay">
+        <h3 class="photo-title">Desain Highlight</h3>
+        <p class="photo-desc">Project PT Tulip Tonata Indonesia – hasil desain saat bekerja sebagai karyawan.</p>
+        <a href="#" class="btn view-image" data-img="image/image_10.JPG">Lihat Detail</a>
+    </div>
+</div>
+
+<div class="design-item glass-card">
+    <img src="image/image_11.JPG" alt="Branding Design" class="design-img">
+    <div class="design-overlay">
+        <h3 class="photo-title">Desain Email Marketing</h3>
+        <p class="photo-desc">Project PT Tulip Tonata Indonesia – hasil desain saat bekerja sebagai karyawan.</p>
+        <a href="#" class="btn view-image" data-img="image/image_11.JPG">Lihat Detail</a>
+    </div>
+</div>
+
+<div class="design-item glass-card">
+    <img src="image/image_12.JPG" alt="Branding Design" class="design-img">
+    <div class="design-overlay">
+        <h3 class="photo-title">Design Spanduk</h3>
+        <p class="photo-desc">Project PT Tulip Tonata Indonesia – hasil desain saat bekerja sebagai karyawan.</p>
+        <a href="#" class="btn view-image" data-img="image/image_12.JPG">Lihat Detail</a>
+    </div>
+</div>
+
+
+       </div>
+    </section>
+
+    <!-- Development Section -->
+    <section class="section development" id="development">
+        <div class="container">
+            <h2 class="section-title">Web Development</h2>
+            <p class="section-desc">Berikut adalah beberapa contoh sistem berbasis web yang pernah saya kembangkan saat kuliah</p>
+            
+            <div class="dev-grid">
+                <!-- Dev Item 1 -->
+<!-- Item 20 -->
+<div class="dev-item glass-card">
+    <img src="image/image_20.png" alt="E-commerce Website" class="dev-img">
+    <div class="dev-overlay">
+        <h3 class="photo-title">Marketplace Mobil</h3>
+        <p class="photo-desc">Platform Jual beli mobil dengan fitur cicilan</p>
+        <a href="#" class="btn view-image" data-img="image/image_20.png">Lihat Detail</a>
+    </div>
+</div>
+
+<!-- Item 21 -->
+<div class="dev-item glass-card">
+    <img src="image/image_21.png" alt="Sistem Pembayaran Kuliah" class="dev-img">
+    <div class="dev-overlay">
+        <h3 class="photo-title">Admni Panel</h3>
+        <p class="photo-desc">Bukti pembayaran customer</p>
+        <a href="#" class="btn view-image" data-img="image/image_21.png">Lihat Detail</a>
+    </div>
+</div>
+
+<!-- Item 22 -->
+<div class="dev-item glass-card">
+    <img src="image/image_22.png" alt="Sistem POS" class="dev-img">
+    <div class="dev-overlay">
+        <h3 class="photo-title">Presensi</h3>
+        <p class="photo-desc">Aplikasi Presensi dengan fitur izin/cuti</p>
+        <a href="#" class="btn view-image" data-img="image/image_22.png">Lihat Detail</a>
+    </div>
+</div>
+
+<!-- Item 23 -->
+<div class="dev-item glass-card">
+    <img src="image/image_23.png" alt="Jual Beli Mobil" class="dev-img">
+    <div class="dev-overlay">
+        <h3 class="photo-title">Point Of Seles (POS)</h3>
+        <p class="photo-desc">Platform Untuk Membantu acounting UMKM</p>
+        <a href="#" class="btn view-image" data-img="image/image_23.png">Lihat Detail</a>
+    </div>
+</div>
+<!-- Item 23 -->
+<div class="dev-item glass-card">
+    <img src="image/image_24.png" alt="Jual Beli Mobil" class="dev-img">
+    <div class="dev-overlay">
+        <h3 class="photo-title">Sistem Pembayaran Kuliah</h3>
+        <p class="photo-desc">Platform dengan fitur Pembayaran angsuran</p>
+        <a href="#" class="btn view-image" data-img="image/image_24.png">Lihat Detail</a>
+    </div>
+</div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">Wilana<span>.</span></div>
+                    <p>Fotografer, Desainer Grafis & Web Developer dengan passion menciptakan karya visual yang menarik dan fungsional.</p>
+                    
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/mnla_ilham?igsh=MXNqbzd0ZTlwdWVtcw==" class="social-link"><i class="fab fa-instagram"></i></a>
+                       <a href="https://wa.me/6285691185824" target="_blank" class="social-link">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+                        <a href="https://www.tiktok.com/@dwiii565?_t=ZS-8zMo09aW4rF&_r=1" class="social-link"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://github.com/dwiilhammaulana" class="social-link"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3 class="footer-heading">Kategori</h3>
+                    <ul>
+                        <li><a href="#photography">Fotografi</a></li>
+                        <li><a href="#design">Desain Grafis</a></li>
+                        <li><a href="#development">Web Development</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3 class="footer-heading">Kontak</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> 1123150008@global.ac.id</li>
+                        <li><i class="fas fa-phone"></i> +62 856 9118 5824</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Pasar kemis, Tangerang, Indonesia</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Dwi ilham maulana. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Navigation
+            const hamburger = document.getElementById('hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            hamburger.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+                hamburger.innerHTML = navMenu.classList.contains('active') ? 
+                    '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+            });
+            
+            // Close mobile nav when clicking on a link
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('active');
+                    hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+                });
+            });
+            
+            // Header scroll effect
+            const header = document.getElementById('header');
+            
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 100) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+            
+            // Back to top button
+            const backToTopButton = document.getElementById('backToTop');
+            
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 300) {
+                    backToTopButton.classList.add('active');
+                } else {
+                    backToTopButton.classList.remove('active');
+                }
+            });
+            
+            backToTopButton.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+    <script>
+document.addEventListener("DOMContentLoaded", () => {
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+    const closeBtn = document.querySelector(".lightbox .close");
+
+    // Klik tombol "Lihat Detail"
+    document.querySelectorAll(".view-image").forEach(btn => {
+        btn.addEventListener("click", e => {
+            e.preventDefault();
+            const imgSrc = btn.dataset.img;
+            lightboxImg.src = imgSrc;
+            lightbox.style.display = "flex"; // tampil full layar
+        });
+    });
+
+    // Tutup dengan tombol X
+    closeBtn.addEventListener("click", () => {
+        lightbox.style.display = "none";
+    });
+
+    // Tutup kalau klik area gelap di luar gambar
+    lightbox.addEventListener("click", e => {
+        if (e.target === lightbox) {
+            lightbox.style.display = "none";
+        }
+    });
+});
+</script>
+
+</body>
+</html>
