@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Kreatif - Fotografer, Desainer Grafis & Web Developer</title>
+    <title>Dwi Ilham Maulana - Graphic Design, Marketplace Admin & Web Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Variabel CSS */
@@ -252,6 +252,20 @@
 
         .hero-cta {
             animation: fadeIn 1.5s ease;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--secondary);
+            border: 2px solid var(--secondary);
+            box-shadow: none;
+        }
+
+        .btn-outline:hover {
+            color: white;
         }
 
        .hero-image {
@@ -270,6 +284,192 @@
     margin-left: 40px;  /* geser sedikit ke kanan */
 }
 
+
+        /* About Section */
+        .about {
+            background: white;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 35px;
+            align-items: start;
+        }
+
+        .about-text p {
+            margin-bottom: 18px;
+            color: #3d4b5c;
+            font-size: 1.05rem;
+        }
+
+        .about-highlights {
+            display: grid;
+            gap: 15px;
+        }
+
+        .highlight-item {
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+            background: var(--light);
+            border-radius: 12px;
+            padding: 18px;
+        }
+
+        .highlight-item i {
+            color: var(--secondary);
+            font-size: 1.4rem;
+            margin-top: 3px;
+        }
+
+        .highlight-item h3 {
+            color: var(--primary);
+            font-size: 1.05rem;
+            margin-bottom: 5px;
+        }
+
+        .highlight-item p {
+            color: #4b5a6a;
+            font-size: 0.95rem;
+        }
+
+        .highlight-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 12px;
+        }
+
+        .mini-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            background: var(--secondary);
+            color: white;
+            border-radius: 999px;
+            padding: 8px 12px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            transition: var(--transition);
+        }
+
+        .mini-link i {
+            color: white;
+            opacity: 1;
+        }
+
+        .mini-link:hover {
+            background: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .tag {
+            background: #eaf4fc;
+            color: var(--primary);
+            border-radius: 999px;
+            padding: 8px 14px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .profile-facts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 12px;
+            margin-top: 22px;
+        }
+
+        .fact-item {
+            background: #f1f6fb;
+            border-left: 4px solid var(--secondary);
+            border-radius: 10px;
+            padding: 14px;
+        }
+
+        .fact-label {
+            color: #617184;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+            text-transform: uppercase;
+        }
+
+        .fact-value {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .resume {
+            background: var(--light);
+        }
+
+        .resume-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 30px;
+        }
+
+        .resume-column {
+            display: grid;
+            gap: 18px;
+        }
+
+        .resume-card {
+            background: white;
+            border-radius: 14px;
+            padding: 24px;
+            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.06);
+        }
+
+        .resume-card h3 {
+            color: var(--primary);
+            margin-bottom: 6px;
+        }
+
+        .resume-meta {
+            color: var(--secondary);
+            font-weight: 700;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+        }
+
+        .resume-card ul {
+            list-style: disc;
+            padding-left: 20px;
+            color: #425064;
+        }
+
+        .resume-card li {
+            margin-bottom: 8px;
+        }
+
+        .education-list {
+            display: grid;
+            gap: 14px;
+        }
+
+        .education-item {
+            border-left: 4px solid var(--secondary);
+            padding-left: 14px;
+        }
+
+        .education-item h3 {
+            color: var(--primary);
+            font-size: 1rem;
+            margin-bottom: 3px;
+        }
+
+        .education-item p {
+            color: #536273;
+        }
 
 
         /* Skills Section */
@@ -358,6 +558,13 @@
             color: var(--dark);
         }
 
+        .skill-note {
+            color: #536273;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
         /* Photography Section */
         .photography {
             background: var(--light);
@@ -417,8 +624,8 @@
         }
 
         .photo-title {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
+            font-size: 1.35rem;
+            margin-bottom: 12px;
             transform: translateY(0px);
             transition: var(--transition);
         }
@@ -430,8 +637,24 @@
 .photo-desc {
     transform: translateY(20px);
     transition: var(--transition);
-    margin-bottom: 50px;
+    margin-bottom: 12px;
     text-align: center; /* bikin teksnya rata tengah */
+    font-size: 0.92rem;
+    line-height: 1.45;
+}
+
+.project-meta {
+    font-size: 0.78rem;
+    font-weight: 700;
+    opacity: 0.95;
+    margin-bottom: 14px;
+}
+
+.photo-overlay .btn,
+.design-overlay .btn,
+.dev-overlay .btn {
+    padding: 9px 18px;
+    font-size: 12px;
 }
 
 
@@ -555,6 +778,31 @@
             opacity: 1;
         }
 
+        .contact-cta {
+            background: #223242;
+            color: white;
+            text-align: center;
+            padding: 65px 0;
+        }
+
+        .contact-cta h2 {
+            font-size: 2rem;
+            margin-bottom: 12px;
+        }
+
+        .contact-cta p {
+            max-width: 680px;
+            margin: 0 auto 25px;
+            color: rgba(255, 255, 255, 0.82);
+        }
+
+        .contact-actions {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
         /* Footer */
         footer {
             background: var(--dark);
@@ -590,16 +838,25 @@
             width: 40px;
             height: 40px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.18);
+            color: white;
             display: flex;
             justify-content: center;
             align-items: center;
             margin-right: 10px;
             transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .social-link i {
+            color: white;
+            opacity: 1;
+            font-size: 1.1rem;
         }
 
         .social-link:hover {
             background: var(--secondary);
+            color: white;
             transform: translateY(-5px);
         }
 
@@ -708,6 +965,23 @@
             .hero-content {
                 grid-template-columns: 1fr;
                 text-align: center;
+            }
+
+            .hero-cta {
+                justify-content: center;
+            }
+
+            .hero-img {
+                margin-left: 0;
+                max-width: 80%;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .resume-grid {
+                grid-template-columns: 1fr;
             }
             
             .hero-title {
@@ -841,6 +1115,7 @@
             
             .btn {
                 padding: 10px 20px;
+                font-size: 12px;
             }
             
             .section {
@@ -880,6 +1155,9 @@
             
             <ul class="nav-menu">
                 <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="#about" class="nav-link">Tentang</a></li>
+                <li class="nav-item"><a href="#experience" class="nav-link">Pengalaman</a></li>
+                <li class="nav-item"><a href="#skills" class="nav-link">Keahlian</a></li>
                 <li class="nav-item"><a href="#photography" class="nav-link">Fotografi</a></li>
                 <li class="nav-item"><a href="#design" class="nav-link">Desain Grafis</a></li>
                 <li class="nav-item"><a href="#development" class="nav-link">Web Development</a></li>
@@ -893,9 +1171,11 @@
         <div class="container hero-content">
             <div class="hero-text">
                 <h1 class="hero-title">Hi, I'm <span>Dwi Ilham Maulana</span></h1>
-                <p class="hero-subtitle">Fotografer, Desainer Grafis & Web Developer</p>
+                <p class="hero-subtitle">Graphic Designer, Marketplace Administrator & Mahasiswa Teknik Informatika yang berfokus pada visual brand, e-commerce, dan sistem berbasis web.</p>
                 <div class="hero-cta">
                     <a href="#photography" class="btn">Lihat Karya Saya</a>
+                    <a href="#contact" class="btn btn-outline">Hubungi Saya</a>
+                    <a href="CV Dwi Ilham Maulana.pdf" class="btn btn-outline">Download CV</a>
                 </div>
             </div>
             
@@ -905,10 +1185,175 @@
 
         </div>
     </section>
+
+    <!-- About Section -->
+    <section class="section about" id="about">
+        <div class="container">
+            <h2 class="section-title">Tentang Saya</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Saya Dwi Ilham Maulana, mahasiswa semester 7 Teknik Informatika dengan fokus Software Engineering di Global Institute. Saya aktif bekerja sejak 2023 di berbagai bidang, mulai dari logistik, retail, live streaming e-commerce, desain grafis, hingga administrasi marketplace.</p>
+                    <p>Saat ini saya bekerja sebagai Graphic Designer & Admin Marketplace di PT Tulip Tonata Indonesia. Saya terbiasa mengelola foto produk, deskripsi/product knowledge, pengaturan diskon, materi desain penjualan, dan tetap membagi waktu antara kuliah malam dan pekerjaan penuh waktu.</p>
+                    <p><strong>Wilana</strong> adalah draf personal brand yang saya gunakan untuk menampilkan karya fotografi, desain, marketplace, dan web development dalam satu tempat.</p>
+                    <div class="tag-list">
+                        <span class="tag">Fotografi Dokumentasi</span>
+                        <span class="tag">Desain Campaign</span>
+                        <span class="tag">Admin Marketplace</span>
+                        <span class="tag">Live Streaming Sales</span>
+                        <span class="tag">Admin Panel</span>
+                        <span class="tag">Laravel & MySQL</span>
+                    </div>
+                    <div class="profile-facts">
+                        <div class="fact-item">
+                            <div class="fact-label">Domisili</div>
+                            <div class="fact-value">Pasar Kemis, Tangerang</div>
+                        </div>
+                        <div class="fact-item">
+                            <div class="fact-label">Tanggal Lahir</div>
+                            <div class="fact-value">5 Juni 2005</div>
+                        </div>
+                        <div class="fact-item">
+                            <div class="fact-label">Pendidikan</div>
+                            <div class="fact-value">Teknik Informatika - Global Institute</div>
+                        </div>
+                        <div class="fact-item">
+                            <div class="fact-label">Status</div>
+                            <div class="fact-value">Mahasiswa semester 7 & bekerja penuh waktu</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-highlights">
+                    <div class="highlight-item">
+                        <i class="fas fa-briefcase"></i>
+                        <div>
+                            <h3>Pengalaman</h3>
+                            <p>Graphic Designer & Admin Marketplace di PT Tulip Tonata Indonesia sejak 2024 sampai sekarang.</p>
+                        </div>
+                    </div>
+                    <div class="highlight-item">
+                        <i class="fas fa-laptop-code"></i>
+                        <div>
+                            <h3>Fokus Web</h3>
+                            <p>Membangun website, CRUD, dashboard, dan sistem administrasi berbasis PHP, Laravel, dan MySQL.</p>
+                        </div>
+                    </div>
+                    <div class="highlight-item">
+                        <i class="fas fa-paper-plane"></i>
+                        <div>
+                            <h3>Mari Terhubung</h3>
+                            <p>Untuk HRD atau calon klien, silakan hubungi saya langsung melalui WhatsApp atau email pribadi.</p>
+                            <div class="highlight-actions">
+                                <a href="https://wa.me/6285691185824?text=Halo%20Dwi%20Ilham%20Maulana,%20saya%20tertarik%20dengan%20profil%20dan%20portfolio%20Anda." target="_blank" class="mini-link"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                                <a href="mailto:ilhammaulana67710@gmail.com?subject=Kesempatan%20Kerja%20/%20Kolaborasi&body=Halo%20Dwi%20Ilham%20Maulana,%0D%0A%0D%0ASaya%20tertarik%20dengan%20profil%20dan%20portfolio%20Anda." class="mini-link"><i class="fas fa-envelope"></i> Email Pribadi</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="section resume" id="experience">
+        <div class="container">
+            <h2 class="section-title">Pengalaman & Pendidikan</h2>
+            <p class="section-desc">Ringkasan pengalaman kerja, pendidikan, dan perjalanan profesional berdasarkan CV terbaru.</p>
+
+            <div class="resume-grid">
+                <div class="resume-column">
+                    <div class="resume-card">
+                        <h3>Graphic Designer & Admin Marketplace</h3>
+                        <p class="resume-meta">PT Tulip Tonata Indonesia - 2024 sampai sekarang</p>
+                        <ul>
+                            <li>Mengelola administrasi produk marketplace, termasuk foto produk, deskripsi/product knowledge, dan pengaturan diskon harga.</li>
+                            <li>Membuat materi desain grafis pendukung penjualan produk secara konsisten dan tepat waktu.</li>
+                            <li>Bertahan dan berkembang di posisi ini sambil menjalani kuliah malam.</li>
+                        </ul>
+                    </div>
+
+                    <div class="resume-card">
+                        <h3>Crew Store & Live Streamer Penjualan</h3>
+                        <p class="resume-meta">Toko Pakaian Muslim - 3 bulan</p>
+                        <ul>
+                            <li>Melayani operasional toko sehari-hari sebagai crew store.</li>
+                            <li>Melakukan live streaming penjualan di TikTok Shop dan Shopee untuk mendukung penjualan online.</li>
+                        </ul>
+                    </div>
+
+                    <div class="resume-card">
+                        <h3>Crew Store</h3>
+                        <p class="resume-meta">PT Sumber Alfaria Trijaya Tbk - Training 3 minggu + lebih dari 1 bulan bertugas</p>
+                        <ul>
+                            <li>Mengikuti pelatihan crew store selama 3 minggu di Gudang Utama Balaraja.</li>
+                            <li>Menangani operasional toko dan pelayanan pelanggan sebagai crew store resmi.</li>
+                        </ul>
+                    </div>
+
+                    <div class="resume-card">
+                        <h3>Packer, Live Streamer & E-commerce Management</h3>
+                        <p class="resume-meta">CV Berlian Furniture - 1 tahun</p>
+                        <ul>
+                            <li>Memulai sebagai packer produk furniture dan matras puzzle.</li>
+                            <li>Berkembang menjadi live streamer penjualan online dan mempelajari manajemen penjualan e-commerce.</li>
+                        </ul>
+                    </div>
+
+                    <div class="resume-card">
+                        <h3>Helper Gudang</h3>
+                        <p class="resume-meta">JNT Express - Mei 2023</p>
+                        <ul>
+                            <li>Menyortir paket dan memuat kembali paket ke kendaraan sesuai tujuan pengiriman.</li>
+                            <li>Terbiasa dengan sistem kerja operasional 12 jam per hari.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="resume-column">
+                    <div class="resume-card">
+                        <h3>Riwayat Pendidikan</h3>
+                        <div class="education-list">
+                            <div class="education-item">
+                                <h3>Teknik Informatika - Software Engineering</h3>
+                                <p>Global Institute, 2023 - Sekarang, semester 7, kelas malam.</p>
+                            </div>
+                            <div class="education-item">
+                                <h3>SMA Daarul Muttaqien 2</h3>
+                                <p>2020 - 2023</p>
+                            </div>
+                            <div class="education-item">
+                                <h3>SMP Daarul Muttaqien 2</h3>
+                                <p>2017 - 2020</p>
+                            </div>
+                            <div class="education-item">
+                                <h3>SDN Sindang Sari 1</h3>
+                                <p>2011 - 2017</p>
+                            </div>
+                            <div class="education-item">
+                                <h3>TK Al-Muhajir</h3>
+                                <p>2010 - 2011</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="resume-card">
+                        <h3>Keunggulan Kerja</h3>
+                        <ul>
+                            <li>Terbiasa bekerja penuh waktu sambil kuliah malam.</li>
+                            <li>Punya pengalaman langsung di operasional gudang, retail, marketplace, dan digital marketing.</li>
+                            <li>Mampu menggabungkan kemampuan visual, administrasi produk, dan pemahaman teknis web.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
       <!-- Skills Section -->
     <section class="section skills" id="skills">
         <div class="container">
-            <h2 class="section-title">Skills & Tools</h2>
+            <h2 class="section-title">Keahlian & Tools</h2>
+            <p class="section-desc">Kombinasi kemampuan visual, marketplace, e-commerce, operasional, dan teknis yang saya gunakan dalam pekerjaan dan project.</p>
             
             <div class="skills-container">
                 <!-- Photography Skills -->
@@ -922,7 +1367,7 @@
                     <div class="skill-list">
                         <div class="skill-item">
                             <i class="fas fa-camera-retro fa-2x"></i>
-                            <div class="skill-name">DSLR Cannon 3000D</div>
+                            <div class="skill-name">DSLR Canon 3000D</div>
                         </div>
                         <div class="skill-item">
                         <i class="fas fa-search fa-2x"></i>
@@ -933,6 +1378,7 @@
                             <div class="skill-name">Adobe Lightroom</div>
                         </div>
                     </div>
+                    <p class="skill-note">Terbiasa mengambil dokumentasi acara, memilih angle, mengatur komposisi, dan melakukan editing dasar warna/foto.</p>
                 </div>
                 
                 <!-- Design Skills -->
@@ -957,6 +1403,44 @@
                             <div class="skill-name">Canva</div>
                         </div>
                     </div>
+                    <p class="skill-note">Mengerjakan materi promosi, campaign, logo sederhana, banner, email marketing, dan kebutuhan visual media sosial.</p>
+                </div>
+
+                <!-- Marketplace Skills -->
+                <div class="skill-category design">
+                    <div class="skill-header">
+                        <div class="skill-icon">
+                            <i class="fas fa-store"></i>
+                        </div>
+                        <h3 class="skill-title">Marketplace & E-commerce</h3>
+                    </div>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <i class="fas fa-box-open fa-2x"></i>
+                            <div class="skill-name">Foto Produk</div>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-tags fa-2x"></i>
+                            <div class="skill-name">Diskon Produk</div>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-list-alt fa-2x"></i>
+                            <div class="skill-name">Product Knowledge</div>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-video fa-2x"></i>
+                            <div class="skill-name">Live Streaming</div>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-shopping-cart fa-2x"></i>
+                            <div class="skill-name">TikTok Shop</div>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-store-alt fa-2x"></i>
+                            <div class="skill-name">Shopee</div>
+                        </div>
+                    </div>
+                    <p class="skill-note">Berpengalaman mengelola produk marketplace, mendukung penjualan online, live streaming, dan manajemen penjualan e-commerce.</p>
                 </div>
 
                 
@@ -997,6 +1481,36 @@
                         </div>
 
                     </div>
+                    <p class="skill-note">Mampu membuat halaman web, sistem CRUD, dashboard admin, database MySQL, dan fitur dasar aplikasi web.</p>
+                </div>
+
+                <!-- Operations Skills -->
+                <div class="skill-category photography">
+                    <div class="skill-header">
+                        <div class="skill-icon">
+                            <i class="fas fa-people-carry"></i>
+                        </div>
+                        <h3 class="skill-title">Operasional & Retail</h3>
+                    </div>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <i class="fas fa-warehouse fa-2x"></i>
+                            <div class="skill-name">Gudang</div>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-user-tie fa-2x"></i>
+                            <div class="skill-name">Crew Store</div>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-truck-loading fa-2x"></i>
+                            <div class="skill-name">Packing</div>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-clock fa-2x"></i>
+                            <div class="skill-name">Manajemen Waktu</div>
+                        </div>
+                    </div>
+                    <p class="skill-note">Terbiasa bekerja di operasional gudang, toko retail, packing produk, pelayanan pelanggan, dan membagi waktu kerja penuh waktu dengan kuliah malam.</p>
                 </div>
             </div>
         </div>
@@ -1006,40 +1520,34 @@
     <section class="section photography" id="photography">
         <div class="container">
             <h2 class="section-title">Karya Fotografi</h2>
-            <p class="section-desc">Berikut merupakan sebagian hasil karya fotografi yang telah saya dokumentasikan</p>
+            <p class="section-desc">Sebagian dokumentasi fotografi yang saya kerjakan, mulai dari acara resmi hingga kebutuhan publikasi visual.</p>
             <div class="photo-grid">
-                <!-- Photo Item 1 -->
                 <div class="photo-item glass-card">
-                    <img src="image/image_1.JPG" alt="Concert Photography" class="photo-img">
+                    <img src="image/image_1.JPG" alt="Dokumentasi HUT RI 80" class="photo-img">
                     <div class="photo-overlay">
                         <h3 class="photo-title">HUT RI 80</h3>
-                        <p class="photo-desc">Dokumentasi upacara dengan pencahayaan dinamis</p>
+                        <p class="photo-desc">Dokumentasi upacara dan momen kegiatan dengan fokus pada komposisi, ekspresi, dan suasana acara.</p>
+                        <p class="project-meta">Fotografi Dokumentasi - Editing Lightroom</p>
                         <a href="#" class="btn view-image" data-img="image/image_1.JPG">Lihat Detail</a>
                     </div>
-                </div>                
-             <!-- Photo Item 2 -->
+                </div>
+
                 <div class="photo-item glass-card">
-                    <img src="image/image_2.JPG" alt="Concert Photography" class="photo-img">
+                    <img src="image/image_2.JPG" alt="Dokumentasi kegiatan HUT RI 80" class="photo-img">
                     <div class="photo-overlay">
                         <h3 class="photo-title">HUT RI 80</h3>
-                        <p class="photo-desc">Dokumentasi upacara dengan pencahayaan dinamis</p>
+                        <p class="photo-desc">Pengambilan gambar kegiatan lapangan untuk kebutuhan arsip, publikasi, dan konten media sosial.</p>
+                        <p class="project-meta">Event Photography - Canon 3000D</p>
                         <a href="#" class="btn view-image" data-img="image/image_2.JPG">Lihat Detail</a>
                     </div>
                 </div>
 
-<!-- Overlay / Lightbox -->
-<div id="lightbox" class="lightbox">
-    <span class="close">&times;</span>
-    <img class="lightbox-content" id="lightbox-img">
-</div>
-
-                
-                <!-- Photo Item 3 -->
                 <div class="photo-item glass-card">
-                    <img src="image/image_4.JPG" alt="Concert Photography" class="photo-img">
+                    <img src="image/image_4.JPG" alt="Foto acara HUT RI 80" class="photo-img">
                     <div class="photo-overlay">
                         <h3 class="photo-title">HUT RI 80</h3>
-                        <p class="photo-desc">Dokumentasi upacara dengan pencahayaan dinamis</p>
+                        <p class="photo-desc">Dokumentasi momen acara dengan pendekatan natural, bersih, dan mudah digunakan untuk publikasi.</p>
+                        <p class="project-meta">Dokumentasi Acara - Draf Lokasi</p>
                         <a href="#" class="btn view-image" data-img="image/image_4.JPG">Lihat Detail</a>
                     </div>
                 </div>
@@ -1047,191 +1555,219 @@
         </div>
     </section>
 
+    <!-- Overlay / Lightbox -->
+    <div id="lightbox" class="lightbox">
+        <span class="close">&times;</span>
+        <img class="lightbox-content" id="lightbox-img" alt="Preview karya">
+    </div>
+
     <!-- Design Section -->
-<section class="section design" id="design">
-    <div class="container">
-        <h2 class="section-title">Desain Grafis</h2>
-        <p class="section-desc">Berikut adalah sebagian design yang telah saya buat selama bekerja di PT. Tulip Tonata Indonesia.</p>
+    <section class="section design" id="design">
+        <div class="container">
+            <h2 class="section-title">Desain Grafis</h2>
+            <p class="section-desc">Sebagian desain yang saya buat untuk kebutuhan branding, campaign, promosi, dan materi komunikasi visual.</p>
 
             <div class="design-grid">
-                <!-- Design Item 1 -->
                 <div class="design-item glass-card">
-                    <img src="image/image_15.jpg" alt="Logo Design" class="design-img">
+                    <img src="image/image_15.jpg" alt="Desain logo Wilana" class="design-img">
                     <div class="design-overlay">
                         <h3 class="photo-title">Desain Logo</h3>
-                        <p class="photo-desc">Logo pribadi ini dirancang sebagai identitas visual resmi kami.</p>
+                        <p class="photo-desc">Logo personal brand Wilana sebagai identitas visual portofolio fotografi, desain, dan web development.</p>
+                        <p class="project-meta">Brand Identity - Draf Finalisasi</p>
                         <a href="#" class="btn view-image" data-img="image/image_15.jpg">Lihat Detail</a>
                     </div>
                 </div>
-                <!-- Design Item 1 -->
+
                 <div class="design-item glass-card">
-                    <img src="image/image_6.jpg" alt="Logo Design" class="design-img">
+                    <img src="image/image_6.jpg" alt="Desain campaign promosi" class="design-img">
                     <div class="design-overlay">
-                        <h3 class="photo-title">Desain Campign</h3>
-                        <p class="photo-desc">Project PT Tulip Tonata Indonesia – hasil desain saat bekerja sebagai karyawan.</p>
+                        <h3 class="photo-title">Desain Campaign</h3>
+                        <p class="photo-desc">Materi campaign untuk kebutuhan promosi produk dan komunikasi visual perusahaan.</p>
+                        <p class="project-meta">PT Tulip Tonata Indonesia - Photoshop/CorelDRAW</p>
                         <a href="#" class="btn view-image" data-img="image/image_6.jpg">Lihat Detail</a>
                     </div>
                 </div>
-                
-                <!-- Design Item 2 -->
+
                 <div class="design-item glass-card">
-                    <img src="image/image_7.jpg" alt="Branding Design" class="design-img">
+                    <img src="image/image_7.jpg" alt="Desain campaign brand" class="design-img">
                     <div class="design-overlay">
-                        <h3 class="photo-title">Desain Campign</h3>
-                        <p class="photo-desc">Project PT Tulip Tonata Indonesia – hasil desain saat bekerja sebagai karyawan.</p>
+                        <h3 class="photo-title">Desain Campaign</h3>
+                        <p class="photo-desc">Visual campaign untuk mendukung promosi dan kebutuhan konten brand.</p>
+                        <p class="project-meta">PT Tulip Tonata Indonesia - Desain Promosi</p>
                         <a href="#" class="btn view-image" data-img="image/image_7.jpg">Lihat Detail</a>
                     </div>
                 </div>
-                <!-- Design Item 2 -->
+
                 <div class="design-item glass-card">
-                    <img src="image/image_8.jpg" alt="Branding Design" class="design-img">
+                    <img src="image/image_8.jpg" alt="Desain ucapan perusahaan" class="design-img">
                     <div class="design-overlay">
-                        <h3 class="photo-title">Ucapan</h3>
-                        <p class="photo-desc">Project PT Tulip Tonata Indonesia – hasil desain saat bekerja sebagai karyawan.</p>
+                        <h3 class="photo-title">Desain Ucapan</h3>
+                        <p class="photo-desc">Desain ucapan untuk kebutuhan publikasi perusahaan dengan komposisi visual yang bersih.</p>
+                        <p class="project-meta">Social Media Design - Draf Platform</p>
                         <a href="#" class="btn view-image" data-img="image/image_8.jpg">Lihat Detail</a>
                     </div>
                 </div>
-<div class="design-item glass-card">
-    <img src="image/image_9.jpg" alt="Branding Design" class="design-img">
-    <div class="design-overlay">
-        <h3 class="photo-title">Desain Gratis Ongkir</h3>
-        <p class="photo-desc">Project PT Tulip Tonata Indonesia – hasil desain saat bekerja sebagai karyawan.</p>
-        <a href="#" class="btn view-image" data-img="image/image_9.jpg">Lihat Detail</a>
-    </div>
-</div>
 
-<div class="design-item glass-card">
-    <img src="image/image_10.jpg" alt="Branding Design" class="design-img">
-    <div class="design-overlay">
-        <h3 class="photo-title">Desain Highlight</h3>
-        <p class="photo-desc">Project PT Tulip Tonata Indonesia – hasil desain saat bekerja sebagai karyawan.</p>
-        <a href="#" class="btn view-image" data-img="image/image_10.jpg">Lihat Detail</a>
-    </div>
-</div>
+                <div class="design-item glass-card">
+                    <img src="image/image_9.jpg" alt="Desain promo gratis ongkir" class="design-img">
+                    <div class="design-overlay">
+                        <h3 class="photo-title">Desain Gratis Ongkir</h3>
+                        <p class="photo-desc">Materi promosi gratis ongkir untuk kebutuhan campaign penjualan dan publikasi digital.</p>
+                        <p class="project-meta">Promo Design - PT Tulip Tonata Indonesia</p>
+                        <a href="#" class="btn view-image" data-img="image/image_9.jpg">Lihat Detail</a>
+                    </div>
+                </div>
 
-<div class="design-item glass-card">
-    <img src="image/image_11.jpg" alt="Branding Design" class="design-img">
-    <div class="design-overlay">
-        <h3 class="photo-title">Desain Email Marketing</h3>
-        <p class="photo-desc">Project PT Tulip Tonata Indonesia – hasil desain saat bekerja sebagai karyawan.</p>
-        <a href="#" class="btn view-image" data-img="image/image_11.jpg">Lihat Detail</a>
-    </div>
-</div>
+                <div class="design-item glass-card">
+                    <img src="image/image_10.jpg" alt="Desain highlight Instagram" class="design-img">
+                    <div class="design-overlay">
+                        <h3 class="photo-title">Desain Highlight</h3>
+                        <p class="photo-desc">Desain highlight untuk memperkuat tampilan profil dan informasi utama di media sosial.</p>
+                        <p class="project-meta">Instagram Highlight - Draf Instagram</p>
+                        <a href="#" class="btn view-image" data-img="image/image_10.jpg">Lihat Detail</a>
+                    </div>
+                </div>
 
-<div class="design-item glass-card">
-    <img src="image/image_12.jpg" alt="Branding Design" class="design-img">
-    <div class="design-overlay">
-        <h3 class="photo-title">Design Spanduk</h3>
-        <p class="photo-desc">Project PT Tulip Tonata Indonesia – hasil desain saat bekerja sebagai karyawan.</p>
-        <a href="#" class="btn view-image" data-img="image/image_12.jpg">Lihat Detail</a>
-    </div>
-</div>
+                <div class="design-item glass-card">
+                    <img src="image/image_11.jpg" alt="Desain email marketing" class="design-img">
+                    <div class="design-overlay">
+                        <h3 class="photo-title">Desain Email Marketing</h3>
+                        <p class="photo-desc">Visual email marketing untuk membantu komunikasi promosi yang rapi dan mudah dibaca.</p>
+                        <p class="project-meta">Email Marketing - Layout Promosi</p>
+                        <a href="#" class="btn view-image" data-img="image/image_11.jpg">Lihat Detail</a>
+                    </div>
+                </div>
 
-
-       </div>
+                <div class="design-item glass-card">
+                    <img src="image/image_12.jpg" alt="Desain spanduk promosi" class="design-img">
+                    <div class="design-overlay">
+                        <h3 class="photo-title">Desain Spanduk</h3>
+                        <p class="photo-desc">Desain spanduk untuk kebutuhan promosi offline dengan informasi utama yang mudah ditangkap.</p>
+                        <p class="project-meta">Banner Design - Draf Ukuran Cetak</p>
+                        <a href="#" class="btn view-image" data-img="image/image_12.jpg">Lihat Detail</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- Development Section -->
     <section class="section development" id="development">
         <div class="container">
             <h2 class="section-title">Web Development</h2>
-            <p class="section-desc">Berikut adalah beberapa contoh sistem berbasis web yang pernah saya kembangkan saat kuliah</p>
-            
+            <p class="section-desc">Beberapa contoh sistem berbasis web yang pernah saya kembangkan saat kuliah, dengan fokus pada fitur, alur data, dan tampilan admin.</p>
+
             <div class="dev-grid">
-                <!-- Dev Item 1 -->
-<!-- Item 20 -->
-<div class="dev-item glass-card">
-    <img src="image/image_20.png" alt="E-commerce Website" class="dev-img">
-    <div class="dev-overlay">
-        <h3 class="photo-title">Marketplace Mobil</h3>
-        <p class="photo-desc">Platform Jual beli mobil dengan fitur cicilan</p>
-        <a href="#" class="btn view-image" data-img="image/image_20.png">Lihat Detail</a>
-    </div>
-</div>
+                <div class="dev-item glass-card">
+                    <img src="image/image_20.png" alt="Marketplace mobil" class="dev-img">
+                    <div class="dev-overlay">
+                        <h3 class="photo-title">Marketplace Mobil</h3>
+                        <p class="photo-desc">Platform jual beli mobil dengan fitur katalog, detail kendaraan, dan simulasi cicilan.</p>
+                        <p class="project-meta">Laravel/PHP - MySQL - Draf Link Demo</p>
+                        <a href="#" class="btn view-image" data-img="image/image_20.png">Lihat Detail</a>
+                    </div>
+                </div>
 
-<!-- Item 21 -->
-<div class="dev-item glass-card">
-    <img src="image/image_21.png" alt="Sistem Pembayaran Kuliah" class="dev-img">
-    <div class="dev-overlay">
-        <h3 class="photo-title">Admni Panel</h3>
-        <p class="photo-desc">Bukti pembayaran customer</p>
-        <a href="#" class="btn view-image" data-img="image/image_21.png">Lihat Detail</a>
-    </div>
-</div>
+                <div class="dev-item glass-card">
+                    <img src="image/image_21.png" alt="Admin panel pembayaran" class="dev-img">
+                    <div class="dev-overlay">
+                        <h3 class="photo-title">Admin Panel</h3>
+                        <p class="photo-desc">Dashboard untuk mengelola data customer, transaksi, dan bukti pembayaran.</p>
+                        <p class="project-meta">CRUD - Dashboard Admin - Draf GitHub</p>
+                        <a href="#" class="btn view-image" data-img="image/image_21.png">Lihat Detail</a>
+                    </div>
+                </div>
 
-<!-- Item 22 -->
-<div class="dev-item glass-card">
-    <img src="image/image_22.png" alt="Sistem POS" class="dev-img">
-    <div class="dev-overlay">
-        <h3 class="photo-title">Presensi</h3>
-        <p class="photo-desc">Aplikasi Presensi dengan fitur izin/cuti</p>
-        <a href="#" class="btn view-image" data-img="image/image_22.png">Lihat Detail</a>
-    </div>
-</div>
+                <div class="dev-item glass-card">
+                    <img src="image/image_22.png" alt="Aplikasi presensi" class="dev-img">
+                    <div class="dev-overlay">
+                        <h3 class="photo-title">Presensi</h3>
+                        <p class="photo-desc">Aplikasi presensi dengan fitur kehadiran, izin, cuti, dan pengelolaan data karyawan.</p>
+                        <p class="project-meta">Web App - Database MySQL - Draf Demo</p>
+                        <a href="#" class="btn view-image" data-img="image/image_22.png">Lihat Detail</a>
+                    </div>
+                </div>
 
-<!-- Item 23 -->
-<div class="dev-item glass-card">
-    <img src="image/image_23.png" alt="Jual Beli Mobil" class="dev-img">
-    <div class="dev-overlay">
-        <h3 class="photo-title">Point Of Seles (POS)</h3>
-        <p class="photo-desc">Platform Untuk Membantu acounting UMKM</p>
-        <a href="#" class="btn view-image" data-img="image/image_23.png">Lihat Detail</a>
-    </div>
-</div>
-<!-- Item 23 -->
-<div class="dev-item glass-card">
-    <img src="image/image_24.png" alt="Jual Beli Mobil" class="dev-img">
-    <div class="dev-overlay">
-        <h3 class="photo-title">Sistem Pembayaran Kuliah</h3>
-        <p class="photo-desc">Platform dengan fitur Pembayaran angsuran</p>
-        <a href="#" class="btn view-image" data-img="image/image_24.png">Lihat Detail</a>
-    </div>
-</div>
+                <div class="dev-item glass-card">
+                    <img src="image/image_23.png" alt="Point of sales UMKM" class="dev-img">
+                    <div class="dev-overlay">
+                        <h3 class="photo-title">Point of Sales (POS)</h3>
+                        <p class="photo-desc">Platform POS untuk membantu pencatatan transaksi, stok, dan laporan sederhana UMKM.</p>
+                        <p class="project-meta">POS UMKM - PHP/MySQL - Draf Repository</p>
+                        <a href="#" class="btn view-image" data-img="image/image_23.png">Lihat Detail</a>
+                    </div>
+                </div>
 
+                <div class="dev-item glass-card">
+                    <img src="image/image_24.png" alt="Sistem pembayaran kuliah" class="dev-img">
+                    <div class="dev-overlay">
+                        <h3 class="photo-title">Sistem Pembayaran Kuliah</h3>
+                        <p class="photo-desc">Sistem pembayaran kuliah dengan fitur pencatatan angsuran, bukti bayar, dan monitoring status.</p>
+                        <p class="project-meta">Sistem Akademik - Draf Link Demo</p>
+                        <a href="#" class="btn view-image" data-img="image/image_24.png">Lihat Detail</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact CTA -->
+    <section class="contact-cta" id="contact">
+        <div class="container">
+            <h2>Siap Berkolaborasi?</h2>
+            <p>Hubungi saya untuk kebutuhan dokumentasi acara, desain promosi, administrasi marketplace, live streaming penjualan, pembuatan website, atau peluang kerja.</p>
+            <div class="contact-actions">
+                <a href="https://wa.me/6285691185824?text=Halo%20Dwi%20Ilham%20Maulana,%20saya%20tertarik%20dengan%20profil%20dan%20portfolio%20Anda." target="_blank" class="btn">WhatsApp</a>
+                <a href="mailto:ilhammaulana67710@gmail.com?subject=Kesempatan%20Kerja%20/%20Kolaborasi&body=Halo%20Dwi%20Ilham%20Maulana,%0D%0A%0D%0ASaya%20tertarik%20dengan%20profil%20dan%20portfolio%20Anda." class="btn btn-outline">Email Pribadi</a>
+                <a href="mailto:1123150008@global.ac.id" class="btn btn-outline">Email Kampus</a>
+                <a href="CV Dwi Ilham Maulana.pdf" class="btn btn-outline">Download CV</a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer id="contact">
+    <footer>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-about">
                     <div class="footer-logo">Wilana<span>.</span></div>
-                    <p>Fotografer, Desainer Grafis & Web Developer dengan passion menciptakan karya visual yang menarik dan fungsional.</p>
-                    
-                    <div class="social-links">
-                        <a href="https://www.instagram.com/mnla_ilham?igsh=MXNqbzd0ZTlwdWVtcw==" class="social-link"><i class="fab fa-instagram"></i></a>
-                       <a href="https://wa.me/6285691185824" target="_blank" class="social-link">
-  <i class="fab fa-whatsapp"></i>
-</a>
+                    <p>Personal portfolio Dwi Ilham Maulana untuk fotografi, desain grafis, dan web development.</p>
 
-                        <a href="https://www.tiktok.com/@dwiii565?_t=ZS-8zMo09aW4rF&_r=1" class="social-link"><i class="fab fa-tiktok"></i></a>
-                        <a href="https://github.com/dwiilhammaulana" class="social-link"><i class="fab fa-github"></i></a>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/mnla_ilham?igsh=MXNqbzd0ZTlwdWVtcw==" target="_blank" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/6285691185824" target="_blank" class="social-link" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.tiktok.com/@dwiii565?_t=ZS-8zMo09aW4rF&_r=1" target="_blank" class="social-link" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://github.com/dwiilhammaulana" target="_blank" class="social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/draf-linkedin" target="_blank" class="social-link" aria-label="LinkedIn draf"><i class="fab fa-linkedin"></i></a>
                     </div>
                 </div>
-                
+
                 <div class="footer-links">
                     <h3 class="footer-heading">Kategori</h3>
                     <ul>
+                        <li><a href="#about">Tentang Saya</a></li>
+                        <li><a href="#experience">Pengalaman</a></li>
+                        <li><a href="#skills">Keahlian</a></li>
                         <li><a href="#photography">Fotografi</a></li>
                         <li><a href="#design">Desain Grafis</a></li>
                         <li><a href="#development">Web Development</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-links">
                     <h3 class="footer-heading">Kontak</h3>
                     <ul>
-                        <li><i class="fas fa-envelope"></i> 1123150008@global.ac.id</li>
-                        <li><i class="fas fa-phone"></i> +62 856 9118 5824</li>
-                        <li><i class="fas fa-map-marker-alt"></i> Pasar kemis, Tangerang, Indonesia</li>
+                        <li><i class="fas fa-envelope"></i> Email pribadi: ilhammaulana67710@gmail.com</li>
+                        <li><i class="fas fa-envelope-open"></i> Email kampus: 1123150008@global.ac.id</li>
+                        <li><i class="fas fa-phone"></i> Telepon/WhatsApp: 085691185824</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Pasar Kemis, Tangerang, Indonesia</li>
+                        <li><i class="fab fa-linkedin"></i> draf-linkedin</li>
                     </ul>
                 </div>
             </div>
-            
+
             <div class="copyright">
-                <p>&copy; 2025 Dwi ilham maulana. All rights reserved.</p>
+                <p>&copy; 2026 Dwi Ilham Maulana. All rights reserved.</p>
             </div>
         </div>
     </footer>
