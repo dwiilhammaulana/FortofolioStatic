@@ -34,6 +34,10 @@
             overflow-x: hidden;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         a {
             text-decoration: none;
             color: inherit;
@@ -79,12 +83,17 @@
         }
 
         .section {
-            padding: 100px 0;
+            padding: 58px 0;
+            scroll-margin-top: 90px;
+        }
+
+        main {
+            background: linear-gradient(180deg, #f6f8fb 0%, #eef3f7 45%, #f8fafc 100%);
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 32px;
             font-size: 2.5rem;
             color: var(--primary);
             position: relative;
@@ -92,7 +101,7 @@
 .section-desc {
     font-size: 18px;
     color: #0d1a2b;     /* hitam kebiruan tua elegan */
-    margin: 10px auto 40px;
+    margin: 8px auto 24px;
     text-align: center;
     line-height: 1.6;
     font-weight: bold;  /* teks tebal */
@@ -164,16 +173,21 @@
 
         .nav-menu {
             display: flex;
+            align-items: center;
+            gap: 22px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
         }
 
         .nav-item {
-            margin-left: 30px;
+            margin-left: 0;
         }
 
         .nav-link {
             font-weight: 600;
             transition: var(--transition);
             position: relative;
+            font-size: 0.94rem;
         }
 
         .nav-link::after {
@@ -202,11 +216,12 @@
 
         /* Hero Section */
         .hero {
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             align-items: center;
             position: relative;
             overflow: hidden;
+            padding: 110px 0 60px;
         }
 
         .hero::before {
@@ -279,9 +294,9 @@
     border-radius: 20px;
     box-shadow: 0 40px 80px rgba(0, 0, 0, 0.2);
     width: 300px;       /* ubah sesuai kebutuhan */
-    max-width: 200%;    
+    max-width: min(100%, 360px);
     height: auto;       
-    margin-left: 40px;  /* geser sedikit ke kanan */
+    margin-left: 20px;  /* geser sedikit ke kanan */
 }
 
 
@@ -570,14 +585,104 @@
             background: var(--light);
         }
 
-        .photo-grid {
+        .portfolio-overview {
+            background: #eef4fa;
+        }
+
+        .portfolio-tabs {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .portfolio-tab {
+            background: white;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.07);
+            transition: var(--transition);
+            min-height: 210px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .portfolio-tab:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 26px rgba(0, 0, 0, 0.12);
+        }
+
+        .portfolio-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            background: var(--secondary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.45rem;
+            margin-bottom: 16px;
+        }
+
+        .portfolio-tab:nth-child(2) .portfolio-icon {
+            background: var(--accent);
+        }
+
+        .portfolio-tab:nth-child(3) .portfolio-icon {
+            background: #27ae60;
+        }
+
+        .portfolio-tab h3 {
+            color: var(--primary);
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+        }
+
+        .portfolio-tab p {
+            color: #526174;
+            margin-bottom: 18px;
+        }
+
+        .portfolio-tab a {
+            color: var(--secondary);
+            font-weight: 700;
+        }
+
+        .design-grid,
+        .cert-grid {
+            scrollbar-width: thin;
+            scrollbar-color: var(--secondary) #dfe7ef;
+        }
+
+        .design-grid::-webkit-scrollbar,
+        .cert-grid::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .design-grid::-webkit-scrollbar-track,
+        .cert-grid::-webkit-scrollbar-track {
+            background: #dfe7ef;
+            border-radius: 999px;
+        }
+
+        .design-grid::-webkit-scrollbar-thumb,
+        .cert-grid::-webkit-scrollbar-thumb {
+            background: var(--secondary);
+            border-radius: 999px;
+        }
+
+        .photo-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
             gap: 25px;
         }
 
         .photo-item {
             position: relative;
+            flex: 0 1 calc((100% - 50px) / 3);
+            min-width: 260px;
             border-radius: 16px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -668,13 +773,16 @@
         }
 
         .design-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
             gap: 25px;
         }
 
         .design-item {
             position: relative;
+            flex: 0 1 calc((100% - 50px) / 3);
+            min-width: 260px;
             border-radius: 16px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -726,13 +834,16 @@
         }
 
         .dev-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
             gap: 25px;
         }
 
         .dev-item {
             position: relative;
+            flex: 0 1 calc((100% - 50px) / 3);
+            min-width: 260px;
             border-radius: 16px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -778,11 +889,141 @@
             opacity: 1;
         }
 
+        .certifications {
+            background: white;
+        }
+
+        .cert-summary {
+            display: grid;
+            grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+            gap: 25px;
+            align-items: stretch;
+            margin-bottom: 28px;
+        }
+
+        .cert-intro,
+        .cert-highlight {
+            background: var(--light);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.06);
+        }
+
+        .cert-intro h3,
+        .cert-highlight h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .cert-intro p,
+        .cert-highlight p {
+            color: #526174;
+        }
+
+        .cert-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-top: 18px;
+        }
+
+        .cert-stat {
+            background: white;
+            border-radius: 12px;
+            padding: 14px;
+            text-align: center;
+        }
+
+        .cert-stat strong {
+            display: block;
+            color: var(--secondary);
+            font-size: 1.5rem;
+        }
+
+        .cert-stat span {
+            color: #596879;
+            font-size: 0.84rem;
+            font-weight: 700;
+        }
+
+        .cert-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 18px;
+        }
+
+        .cert-tag {
+            background: #eaf4fc;
+            color: var(--primary);
+            border-radius: 999px;
+            padding: 8px 12px;
+            font-size: 0.86rem;
+            font-weight: 700;
+        }
+
+        .cert-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 18px;
+        }
+
+        .cert-card {
+            background: #f8fbfd;
+            border-radius: 14px;
+            border: 1px solid #e2ebf3;
+            padding: 18px;
+            display: flex;
+            flex-direction: column;
+            flex: 0 1 calc((100% - 36px) / 3);
+            min-width: 240px;
+            min-height: 190px;
+            transition: var(--transition);
+        }
+
+        .cert-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+            border-color: rgba(52, 152, 219, 0.45);
+        }
+
+        .cert-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: var(--secondary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            margin-bottom: 14px;
+        }
+
+        .cert-card h3 {
+            color: var(--primary);
+            font-size: 1.05rem;
+            line-height: 1.35;
+            margin-bottom: 8px;
+        }
+
+        .cert-card p {
+            color: #596879;
+            font-size: 0.92rem;
+            margin-bottom: 16px;
+        }
+
+        .cert-card .mini-link {
+            margin-top: auto;
+            align-self: flex-start;
+        }
+
         .contact-cta {
             background: #223242;
             color: white;
             text-align: center;
-            padding: 65px 0;
+            padding: 46px 0;
         }
 
         .contact-cta h2 {
@@ -807,15 +1048,15 @@
         footer {
             background: var(--dark);
             color: white;
-            padding: 50px 0 20px;
+            padding: 36px 0 18px;
             text-align: center;
         }
 
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-bottom: 30px;
+            gap: 24px;
+            margin-bottom: 20px;
             text-align: left;
         }
 
@@ -983,6 +1224,11 @@
             .resume-grid {
                 grid-template-columns: 1fr;
             }
+
+            .portfolio-tabs,
+            .cert-summary {
+                grid-template-columns: 1fr;
+            }
             
             .hero-title {
                 font-size: 2.8rem;
@@ -1044,16 +1290,54 @@
             .skills-container {
                 grid-template-columns: 1fr;
             }
+
+            .cert-stats {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .photo-item,
+            .design-item,
+            .dev-item {
+                flex-basis: calc((100% - 25px) / 2);
+            }
+
+            .cert-card {
+                flex-basis: calc((100% - 18px) / 2);
+            }
+        }
+
+        @media (min-width: 993px) {
+            .design-grid,
+            .cert-grid {
+                max-height: 650px;
+                overflow-y: auto;
+                padding-right: 8px;
+            }
+
+            .certifications .section-desc,
+            .design .section-desc {
+                margin-bottom: 18px;
+            }
         }
         /* Overlay full layar */
 .lightbox {
-    display: none;
+    display: flex;
     position: fixed;
     inset: 0; /* atas, kanan, bawah, kiri = 0 */
     background: rgba(0, 0, 0, 0.9); /* gelap */
     z-index: 9999;
     justify-content: center;
     align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.lightbox.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
 }
 
 /* Gambar di tengah */
@@ -1063,6 +1347,25 @@
     border-radius: 8px;
     box-shadow: 0 0 25px rgba(0,0,0,0.6);
     animation: zoomIn 0.3s ease-in-out;
+}
+
+.lightbox-frame {
+    display: none;
+    width: min(92vw, 980px);
+    height: min(86vh, 760px);
+    border: 0;
+    border-radius: 10px;
+    background: white;
+    box-shadow: 0 0 25px rgba(0,0,0,0.6);
+    animation: zoomIn 0.3s ease-in-out;
+}
+
+.lightbox-frame.active {
+    display: block;
+}
+
+.lightbox-content.hidden {
+    display: none;
 }
 
 /* Tombol close (X) */
@@ -1119,17 +1422,35 @@
             }
             
             .section {
-                padding: 60px 0;
+                padding: 42px 0;
             }
             
             .photo-grid,
             .design-grid,
-            .dev-grid {
+            .dev-grid,
+            .cert-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .photo-item,
+            .design-item,
+            .dev-item,
+            .cert-card {
+                flex-basis: 100%;
+                min-width: 0;
             }
 
             .skill-list {
                 grid-template-columns: repeat(2, 1fr);
+            }
+
+            .cert-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .lightbox-frame {
+                width: 94vw;
+                height: 78vh;
             }
             
             
@@ -1158,14 +1479,14 @@
                 <li class="nav-item"><a href="#about" class="nav-link">Tentang</a></li>
                 <li class="nav-item"><a href="#experience" class="nav-link">Pengalaman</a></li>
                 <li class="nav-item"><a href="#skills" class="nav-link">Keahlian</a></li>
-                <li class="nav-item"><a href="#photography" class="nav-link">Fotografi</a></li>
-                <li class="nav-item"><a href="#design" class="nav-link">Desain Grafis</a></li>
-                <li class="nav-item"><a href="#development" class="nav-link">Web Development</a></li>
+                <li class="nav-item"><a href="#portfolio" class="nav-link">Karya</a></li>
+                <li class="nav-item"><a href="#certifications" class="nav-link">Sertifikasi</a></li>
                 <li class="nav-item"><a href="#contact" class="nav-link">Kontak</a></li>
             </ul>
         </div>
     </header>
 
+    <main>
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container hero-content">
@@ -1516,17 +1837,49 @@
         </div>
     </section>
 
+    <!-- Portfolio Overview -->
+    <section class="section portfolio-overview" id="portfolio">
+        <div class="container">
+            <h2 class="section-title">Karya Pilihan</h2>
+            <p class="section-desc">Portfolio dibagi per kategori supaya lebih mudah dibuka di HP maupun desktop tanpa harus menelusuri satu halaman yang terlalu panjang.</p>
+
+            <div class="portfolio-tabs">
+                <div class="portfolio-tab">
+                    <div>
+                        <div class="portfolio-icon"><i class="fas fa-camera"></i></div>
+                        <h3>Fotografi Dokumentasi</h3>
+                    </div>
+                    <a href="#photography">Lihat fotografi <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <div class="portfolio-tab">
+                    <div>
+                        <div class="portfolio-icon"><i class="fas fa-palette"></i></div>
+                        <h3>Desain Grafis</h3>
+                    </div>
+                    <a href="#design">Lihat desain <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <div class="portfolio-tab">
+                    <div>
+                        <div class="portfolio-icon"><i class="fas fa-code"></i></div>
+                        <h3>Web Development</h3>
+                    </div>
+                    <a href="#development">Lihat web project <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Photography Section -->
     <section class="section photography" id="photography">
         <div class="container">
             <h2 class="section-title">Karya Fotografi</h2>
-            <p class="section-desc">Sebagian dokumentasi fotografi yang saya kerjakan, mulai dari acara resmi hingga kebutuhan publikasi visual.</p>
             <div class="photo-grid">
                 <div class="photo-item glass-card">
                     <img src="image/image_1.JPG" alt="Dokumentasi HUT RI 80" class="photo-img">
                     <div class="photo-overlay">
                         <h3 class="photo-title">HUT RI 80</h3>
-                        <p class="photo-desc">Dokumentasi upacara dan momen kegiatan dengan fokus pada komposisi, ekspresi, dan suasana acara.</p>
                         <p class="project-meta">Fotografi Dokumentasi - Editing Lightroom</p>
                         <a href="#" class="btn view-image" data-img="image/image_1.JPG">Lihat Detail</a>
                     </div>
@@ -1536,7 +1889,6 @@
                     <img src="image/image_2.JPG" alt="Dokumentasi kegiatan HUT RI 80" class="photo-img">
                     <div class="photo-overlay">
                         <h3 class="photo-title">HUT RI 80</h3>
-                        <p class="photo-desc">Pengambilan gambar kegiatan lapangan untuk kebutuhan arsip, publikasi, dan konten media sosial.</p>
                         <p class="project-meta">Event Photography - Canon 3000D</p>
                         <a href="#" class="btn view-image" data-img="image/image_2.JPG">Lihat Detail</a>
                     </div>
@@ -1546,7 +1898,6 @@
                     <img src="image/image_4.JPG" alt="Foto acara HUT RI 80" class="photo-img">
                     <div class="photo-overlay">
                         <h3 class="photo-title">HUT RI 80</h3>
-                        <p class="photo-desc">Dokumentasi momen acara dengan pendekatan natural, bersih, dan mudah digunakan untuk publikasi.</p>
                         <p class="project-meta">Dokumentasi Acara - Draf Lokasi</p>
                         <a href="#" class="btn view-image" data-img="image/image_4.JPG">Lihat Detail</a>
                     </div>
@@ -1559,20 +1910,19 @@
     <div id="lightbox" class="lightbox">
         <span class="close">&times;</span>
         <img class="lightbox-content" id="lightbox-img" alt="Preview karya">
+        <iframe class="lightbox-frame" id="lightbox-frame" title="Preview sertifikat"></iframe>
     </div>
 
     <!-- Design Section -->
     <section class="section design" id="design">
         <div class="container">
             <h2 class="section-title">Desain Grafis</h2>
-            <p class="section-desc">Sebagian desain yang saya buat untuk kebutuhan branding, campaign, promosi, dan materi komunikasi visual.</p>
 
             <div class="design-grid">
                 <div class="design-item glass-card">
                     <img src="image/image_15.jpg" alt="Desain logo Wilana" class="design-img">
                     <div class="design-overlay">
                         <h3 class="photo-title">Desain Logo</h3>
-                        <p class="photo-desc">Logo personal brand Wilana sebagai identitas visual portofolio fotografi, desain, dan web development.</p>
                         <p class="project-meta">Brand Identity - Draf Finalisasi</p>
                         <a href="#" class="btn view-image" data-img="image/image_15.jpg">Lihat Detail</a>
                     </div>
@@ -1582,7 +1932,6 @@
                     <img src="image/image_6.jpg" alt="Desain campaign promosi" class="design-img">
                     <div class="design-overlay">
                         <h3 class="photo-title">Desain Campaign</h3>
-                        <p class="photo-desc">Materi campaign untuk kebutuhan promosi produk dan komunikasi visual perusahaan.</p>
                         <p class="project-meta">PT Tulip Tonata Indonesia - Photoshop/CorelDRAW</p>
                         <a href="#" class="btn view-image" data-img="image/image_6.jpg">Lihat Detail</a>
                     </div>
@@ -1592,7 +1941,6 @@
                     <img src="image/image_7.jpg" alt="Desain campaign brand" class="design-img">
                     <div class="design-overlay">
                         <h3 class="photo-title">Desain Campaign</h3>
-                        <p class="photo-desc">Visual campaign untuk mendukung promosi dan kebutuhan konten brand.</p>
                         <p class="project-meta">PT Tulip Tonata Indonesia - Desain Promosi</p>
                         <a href="#" class="btn view-image" data-img="image/image_7.jpg">Lihat Detail</a>
                     </div>
@@ -1602,7 +1950,6 @@
                     <img src="image/image_8.jpg" alt="Desain ucapan perusahaan" class="design-img">
                     <div class="design-overlay">
                         <h3 class="photo-title">Desain Ucapan</h3>
-                        <p class="photo-desc">Desain ucapan untuk kebutuhan publikasi perusahaan dengan komposisi visual yang bersih.</p>
                         <p class="project-meta">Social Media Design - Draf Platform</p>
                         <a href="#" class="btn view-image" data-img="image/image_8.jpg">Lihat Detail</a>
                     </div>
@@ -1612,7 +1959,6 @@
                     <img src="image/image_9.jpg" alt="Desain promo gratis ongkir" class="design-img">
                     <div class="design-overlay">
                         <h3 class="photo-title">Desain Gratis Ongkir</h3>
-                        <p class="photo-desc">Materi promosi gratis ongkir untuk kebutuhan campaign penjualan dan publikasi digital.</p>
                         <p class="project-meta">Promo Design - PT Tulip Tonata Indonesia</p>
                         <a href="#" class="btn view-image" data-img="image/image_9.jpg">Lihat Detail</a>
                     </div>
@@ -1622,7 +1968,6 @@
                     <img src="image/image_10.jpg" alt="Desain highlight Instagram" class="design-img">
                     <div class="design-overlay">
                         <h3 class="photo-title">Desain Highlight</h3>
-                        <p class="photo-desc">Desain highlight untuk memperkuat tampilan profil dan informasi utama di media sosial.</p>
                         <p class="project-meta">Instagram Highlight - Draf Instagram</p>
                         <a href="#" class="btn view-image" data-img="image/image_10.jpg">Lihat Detail</a>
                     </div>
@@ -1632,7 +1977,6 @@
                     <img src="image/image_11.jpg" alt="Desain email marketing" class="design-img">
                     <div class="design-overlay">
                         <h3 class="photo-title">Desain Email Marketing</h3>
-                        <p class="photo-desc">Visual email marketing untuk membantu komunikasi promosi yang rapi dan mudah dibaca.</p>
                         <p class="project-meta">Email Marketing - Layout Promosi</p>
                         <a href="#" class="btn view-image" data-img="image/image_11.jpg">Lihat Detail</a>
                     </div>
@@ -1642,7 +1986,6 @@
                     <img src="image/image_12.jpg" alt="Desain spanduk promosi" class="design-img">
                     <div class="design-overlay">
                         <h3 class="photo-title">Desain Spanduk</h3>
-                        <p class="photo-desc">Desain spanduk untuk kebutuhan promosi offline dengan informasi utama yang mudah ditangkap.</p>
                         <p class="project-meta">Banner Design - Draf Ukuran Cetak</p>
                         <a href="#" class="btn view-image" data-img="image/image_12.jpg">Lihat Detail</a>
                     </div>
@@ -1655,14 +1998,12 @@
     <section class="section development" id="development">
         <div class="container">
             <h2 class="section-title">Web Development</h2>
-            <p class="section-desc">Beberapa contoh sistem berbasis web yang pernah saya kembangkan saat kuliah, dengan fokus pada fitur, alur data, dan tampilan admin.</p>
 
             <div class="dev-grid">
                 <div class="dev-item glass-card">
                     <img src="image/image_20.png" alt="Marketplace mobil" class="dev-img">
                     <div class="dev-overlay">
                         <h3 class="photo-title">Marketplace Mobil</h3>
-                        <p class="photo-desc">Platform jual beli mobil dengan fitur katalog, detail kendaraan, dan simulasi cicilan.</p>
                         <p class="project-meta">Laravel/PHP - MySQL - Draf Link Demo</p>
                         <a href="#" class="btn view-image" data-img="image/image_20.png">Lihat Detail</a>
                     </div>
@@ -1672,7 +2013,6 @@
                     <img src="image/image_21.png" alt="Admin panel pembayaran" class="dev-img">
                     <div class="dev-overlay">
                         <h3 class="photo-title">Admin Panel</h3>
-                        <p class="photo-desc">Dashboard untuk mengelola data customer, transaksi, dan bukti pembayaran.</p>
                         <p class="project-meta">CRUD - Dashboard Admin - Draf GitHub</p>
                         <a href="#" class="btn view-image" data-img="image/image_21.png">Lihat Detail</a>
                     </div>
@@ -1682,7 +2022,6 @@
                     <img src="image/image_22.png" alt="Aplikasi presensi" class="dev-img">
                     <div class="dev-overlay">
                         <h3 class="photo-title">Presensi</h3>
-                        <p class="photo-desc">Aplikasi presensi dengan fitur kehadiran, izin, cuti, dan pengelolaan data karyawan.</p>
                         <p class="project-meta">Web App - Database MySQL - Draf Demo</p>
                         <a href="#" class="btn view-image" data-img="image/image_22.png">Lihat Detail</a>
                     </div>
@@ -1692,7 +2031,6 @@
                     <img src="image/image_23.png" alt="Point of sales UMKM" class="dev-img">
                     <div class="dev-overlay">
                         <h3 class="photo-title">Point of Sales (POS)</h3>
-                        <p class="photo-desc">Platform POS untuk membantu pencatatan transaksi, stok, dan laporan sederhana UMKM.</p>
                         <p class="project-meta">POS UMKM - PHP/MySQL - Draf Repository</p>
                         <a href="#" class="btn view-image" data-img="image/image_23.png">Lihat Detail</a>
                     </div>
@@ -1702,10 +2040,147 @@
                     <img src="image/image_24.png" alt="Sistem pembayaran kuliah" class="dev-img">
                     <div class="dev-overlay">
                         <h3 class="photo-title">Sistem Pembayaran Kuliah</h3>
-                        <p class="photo-desc">Sistem pembayaran kuliah dengan fitur pencatatan angsuran, bukti bayar, dan monitoring status.</p>
                         <p class="project-meta">Sistem Akademik - Draf Link Demo</p>
                         <a href="#" class="btn view-image" data-img="image/image_24.png">Lihat Detail</a>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section class="section certifications" id="certifications">
+        <div class="container">
+            <h2 class="section-title">Sertifikasi & Apresiasi</h2>
+
+            <div class="cert-summary">
+                <div class="cert-intro">
+                    <h3>Ringkasan Sertifikasi</h3>
+                    <div class="cert-stats">
+                        <div class="cert-stat">
+                            <strong>14</strong>
+                            <span>Dokumen</span>
+                        </div>
+                        <div class="cert-stat">
+                            <strong>4</strong>
+                            <span>Bidang</span>
+                        </div>
+                        <div class="cert-stat">
+                            <strong>PDF/JPG</strong>
+                            <span>Lampiran</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cert-highlight">
+                    <h3>Fokus Pembelajaran</h3>
+                    <div class="cert-tags">
+                        <span class="cert-tag">Data Science</span>
+                        <span class="cert-tag">Microsoft Fabric</span>
+                        <span class="cert-tag">Generative AI</span>
+                        <span class="cert-tag">Seminar & Webinar</span>
+                        <span class="cert-tag">Organisasi</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cert-grid">
+                <div class="cert-card">
+                    <div class="cert-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>Belajar Penerapan Data Science dengan Microsoft Fabric</h3>
+                    <p>Sertifikat penyelesaian kelas Dicoding terkait penerapan data science dan Microsoft Fabric.</p>
+                    <a href="#" class="mini-link view-cert" data-file="sertifikasi/Belajar Penerapan Data Science dengan Microsoft Fabric dicoding.pdf"><i class="fas fa-file-pdf"></i> Lihat Sertifikat</a>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-icon"><i class="fas fa-database"></i></div>
+                    <h3>Sertifikat Microsoft Fabric Dicoding</h3>
+                    <p>Lampiran sertifikat pembelajaran Microsoft Fabric untuk pengolahan dan analisis data.</p>
+                    <a href="#" class="mini-link view-cert" data-file="sertifikasi/Sertifikat MS fabric dicoding.pdf"><i class="fas fa-file-pdf"></i> Lihat Sertifikat</a>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-icon"><i class="fas fa-robot"></i></div>
+                    <h3>Aplikasi Generative AI dengan Microsoft Azure</h3>
+                    <p>Sertifikat penyelesaian materi generative AI dengan pemanfaatan layanan Microsoft Azure.</p>
+                    <a href="#" class="mini-link view-cert" data-file="sertifikasi/Sertifikat Aplikasi Gen AI dengan Microsoft Azure dicoding.pdf"><i class="fas fa-file-pdf"></i> Lihat Sertifikat</a>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-icon"><i class="fas fa-brain"></i></div>
+                    <h3>Sertifikasi Gemini AI</h3>
+                    <p>Lampiran sertifikasi/pembelajaran seputar pemanfaatan AI untuk kebutuhan produktivitas.</p>
+                    <a href="#" class="mini-link view-cert" data-file="sertifikasi/Sertifikasi Geminy AI.pdf"><i class="fas fa-file-pdf"></i> Lihat Sertifikat</a>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-icon"><i class="fas fa-award"></i></div>
+                    <h3>Apresiasi Microsoft & Dicoding</h3>
+                    <p>Dokumen apresiasi kegiatan atau pembelajaran yang berkaitan dengan Microsoft dan Dicoding.</p>
+                    <a href="#" class="mini-link view-cert" data-file="sertifikasi/apresiasi%20Mcs%20%26%20dicoding.pdf"><i class="fas fa-file-pdf"></i> Lihat Sertifikat</a>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-icon"><i class="fas fa-users"></i></div>
+                    <h3>Sertifikat Organisasi IKSDAM</h3>
+                    <p>Dokumen pengalaman organisasi yang mendukung kemampuan kolaborasi dan tanggung jawab.</p>
+                    <a href="#" class="mini-link view-image" data-img="sertifikasi/Sertifikat Organisasi IKSDAM.jpg"><i class="fas fa-image"></i> Lihat Sertifikat</a>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-icon"><i class="fas fa-certificate"></i></div>
+                    <h3>SOT</h3>
+                    <p>Lampiran sertifikat kegiatan atau pelatihan sebagai bagian dari dokumen pendukung portfolio.</p>
+                    <a href="#" class="mini-link view-cert" data-file="sertifikasi/SOT.pdf"><i class="fas fa-file-pdf"></i> Lihat Sertifikat</a>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-icon"><i class="fas fa-certificate"></i></div>
+                    <h3>SOD</h3>
+                    <p>Lampiran sertifikat kegiatan atau pelatihan sebagai bagian dari dokumen pendukung portfolio.</p>
+                    <a href="#" class="mini-link view-cert" data-file="sertifikasi/SOD.pdf"><i class="fas fa-file-pdf"></i> Lihat Sertifikat</a>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                    <h3>Seminar MSC</h3>
+                    <p>Sertifikat peserta seminar sebagai bukti partisipasi kegiatan pengembangan diri.</p>
+                    <a href="#" class="mini-link view-cert" data-file="sertifikasi/Seminar - MSC.pdf"><i class="fas fa-file-pdf"></i> Lihat Sertifikat</a>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-icon"><i class="fas fa-globe"></i></div>
+                    <h3>Peserta Webinar Hostinger</h3>
+                    <p>Sertifikat peserta webinar terkait pengembangan wawasan digital dan teknologi web.</p>
+                    <a href="#" class="mini-link view-cert" data-file="sertifikasi/Peserta webinar hostinger.pdf"><i class="fas fa-file-pdf"></i> Lihat Sertifikat</a>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-icon"><i class="fas fa-microphone"></i></div>
+                    <h3>Peserta Seminar</h3>
+                    <p>Sertifikat peserta seminar untuk melengkapi rekam kegiatan pembelajaran dan pengembangan diri.</p>
+                    <a href="#" class="mini-link view-image" data-img="sertifikasi/Peserta seminar.png"><i class="fas fa-image"></i> Lihat Sertifikat</a>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-icon"><i class="fas fa-earth-asia"></i></div>
+                    <h3>Peserta Seminar Global</h3>
+                    <p>Sertifikat peserta seminar global sebagai bukti partisipasi kegiatan wawasan internasional.</p>
+                    <a href="#" class="mini-link view-cert" data-file="sertifikasi/Peserta Seminar global.pdf"><i class="fas fa-file-pdf"></i> Lihat Sertifikat</a>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-icon"><i class="fas fa-flag"></i></div>
+                    <h3>Peserta Seminar Jepang</h3>
+                    <p>Sertifikat peserta seminar bertema Jepang sebagai bagian dari kegiatan tambahan.</p>
+                    <a href="#" class="mini-link view-image" data-img="sertifikasi/peserta seminar jepang.jpeg"><i class="fas fa-image"></i> Lihat Sertifikat</a>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-icon"><i class="fas fa-network-wired"></i></div>
+                    <h3>Peserta Seminar Core IT</h3>
+                    <p>Sertifikat peserta seminar terkait bidang teknologi informasi.</p>
+                    <a href="#" class="mini-link view-image" data-img="sertifikasi/peserta seminar core it.png"><i class="fas fa-image"></i> Lihat Sertifikat</a>
                 </div>
             </div>
         </div>
@@ -1748,9 +2223,11 @@
                         <li><a href="#about">Tentang Saya</a></li>
                         <li><a href="#experience">Pengalaman</a></li>
                         <li><a href="#skills">Keahlian</a></li>
+                        <li><a href="#portfolio">Karya Pilihan</a></li>
                         <li><a href="#photography">Fotografi</a></li>
                         <li><a href="#design">Desain Grafis</a></li>
                         <li><a href="#development">Web Development</a></li>
+                        <li><a href="#certifications">Sertifikasi</a></li>
                     </ul>
                 </div>
 
@@ -1771,6 +2248,7 @@
             </div>
         </div>
     </footer>
+    </main>
 
     <!-- Back to Top Button -->
     <div class="back-to-top" id="backToTop">
@@ -1799,31 +2277,32 @@
             
             // Header scroll effect
             const header = document.getElementById('header');
-            
-            window.addEventListener('scroll', function() {
+
+            function updateHeaderState() {
                 if (window.scrollY > 100) {
                     header.classList.add('scrolled');
                 } else {
                     header.classList.remove('scrolled');
                 }
-            });
+            }
+
+            window.addEventListener('scroll', updateHeaderState);
             
             // Back to top button
             const backToTopButton = document.getElementById('backToTop');
-            
-            window.addEventListener('scroll', function() {
+
+            function updateBackToTopState() {
                 if (window.scrollY > 300) {
                     backToTopButton.classList.add('active');
                 } else {
                     backToTopButton.classList.remove('active');
                 }
-            });
+            }
+
+            window.addEventListener('scroll', updateBackToTopState);
             
             backToTopButton.addEventListener('click', function() {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             });
             
             // Smooth scrolling for anchor links
@@ -1849,27 +2328,58 @@
 document.addEventListener("DOMContentLoaded", () => {
     const lightbox = document.getElementById("lightbox");
     const lightboxImg = document.getElementById("lightbox-img");
+    const lightboxFrame = document.getElementById("lightbox-frame");
     const closeBtn = document.querySelector(".lightbox .close");
 
-    // Klik tombol "Lihat Detail"
+    function openLightbox() {
+        lightbox.classList.add("active");
+        document.body.style.overflow = "hidden";
+    }
+
+    function closeLightbox() {
+        lightbox.classList.remove("active");
+        document.body.style.overflow = "";
+        lightboxImg.src = "";
+        lightboxFrame.src = "";
+    }
+
+    // Klik tombol "Lihat Detail" untuk gambar karya dan sertifikat berbentuk gambar.
     document.querySelectorAll(".view-image").forEach(btn => {
         btn.addEventListener("click", e => {
             e.preventDefault();
             const imgSrc = btn.dataset.img;
             lightboxImg.src = imgSrc;
-            lightbox.style.display = "flex"; // tampil full layar
+            lightboxImg.classList.remove("hidden");
+            lightboxFrame.classList.remove("active");
+            openLightbox();
+        });
+    });
+
+    // Klik tombol "Lihat Sertifikat" untuk sertifikat berbentuk PDF.
+    document.querySelectorAll(".view-cert").forEach(btn => {
+        btn.addEventListener("click", e => {
+            e.preventDefault();
+            const certSrc = btn.dataset.file;
+            lightboxFrame.src = certSrc;
+            lightboxFrame.classList.add("active");
+            lightboxImg.classList.add("hidden");
+            openLightbox();
         });
     });
 
     // Tutup dengan tombol X
-    closeBtn.addEventListener("click", () => {
-        lightbox.style.display = "none";
-    });
+    closeBtn.addEventListener("click", closeLightbox);
 
-    // Tutup kalau klik area gelap di luar gambar
+    // Tutup kalau klik area gelap di luar preview.
     lightbox.addEventListener("click", e => {
         if (e.target === lightbox) {
-            lightbox.style.display = "none";
+            closeLightbox();
+        }
+    });
+
+    document.addEventListener("keydown", e => {
+        if (e.key === "Escape") {
+            closeLightbox();
         }
     });
 });
