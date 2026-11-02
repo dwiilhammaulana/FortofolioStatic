@@ -3,7 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f7faff">
+    <meta name="description" content="Portfolio Dwi Ilham Maulana: fotografi, desain grafis, administrasi marketplace, dan pengembangan web.">
     <title>Dwi Ilham Maulana - Graphic Design, Marketplace Admin & Web Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Variabel CSS */
@@ -1653,6 +1658,7 @@
             
         }
     </style>
+    <link rel="stylesheet" href="professional.css">
       <link rel="icon" type="image/png" href="dwi logo2.png">
 </head>
 <body>
@@ -1667,9 +1673,9 @@
 
               
             
-            <div class="hamburger" id="hamburger">
+            <button class="hamburger" id="hamburger" type="button" aria-label="Buka menu" aria-expanded="false">
                 <i class="fas fa-bars"></i>
-            </div>
+            </button>
             
             <ul class="nav-menu">
                 <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
@@ -1688,19 +1694,22 @@
     <section class="hero" id="home">
         <div class="container hero-content">
             <div class="hero-text">
-                <div class="hero-kicker">Hi, I'm</div>
+                <div class="hero-kicker">PORTFOLIO / 2026</div>
                 <h1 class="hero-title">Dwi Ilham <span>Maulana</span></h1>
-                <p class="hero-subtitle"><i class="far fa-user"></i><span>Graphic Designer, Marketplace Administrator & Mahasiswa Teknik Informatika</span></p>
-                <p class="hero-copy">Yang berfokus pada visual brand, e-commerce, dan sistem berbasis web.</p>
+                <p class="hero-subtitle"><i class="far fa-user"></i><span>Desain grafis · Marketplace · Web development</span></p>
+                <p class="hero-copy">Saya mengubah ide menjadi visual yang terasa hidup dan pengalaman digital yang mudah digunakan.</p>
                 <div class="hero-cta">
-                    <a href="#photography" class="btn"><i class="fas fa-download"></i> Lihat Karya Saya</a>
+                    <a href="#portfolio" class="btn"><i class="fas fa-arrow-up-right-from-square"></i> Jelajahi Karya</a>
                     <a href="#contact" class="btn btn-outline"><i class="fas fa-link"></i> Hubungi Saya</a>
                     <a href="CV Dwi Ilham Maulana.pdf" class="btn btn-outline"><i class="fas fa-file-download"></i> Download CV</a>
                 </div>
             </div>
             
             <div class="hero-image">
-                <img src="ilham.png" alt="Dwi Ilham Maulana" class="hero-img">
+                <div class="portrait-glow" aria-hidden="true"></div>
+                <div class="portrait-frame">
+                    <img src="ilham.png" alt="Potret Dwi Ilham Maulana" class="hero-img" fetchpriority="high">
+                </div>
             </div>
 
         </div>
@@ -2107,8 +2116,8 @@
     </section>
 
     <!-- Overlay / Lightbox -->
-    <div id="lightbox" class="lightbox">
-        <span class="close">&times;</span>
+    <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Pratinjau karya atau sertifikat">
+        <button class="close" type="button" aria-label="Tutup pratinjau">&times;</button>
         <img class="lightbox-content" id="lightbox-img" alt="Preview karya">
         <iframe class="lightbox-frame" id="lightbox-frame" title="Preview sertifikat"></iframe>
     </div>
@@ -2413,7 +2422,7 @@
                         <a href="https://wa.me/6285691185824" target="_blank" class="social-link" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                         <a href="https://www.tiktok.com/@dwiii565?_t=ZS-8zMo09aW4rF&_r=1" target="_blank" class="social-link" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
                         <a href="https://github.com/dwiilhammaulana" target="_blank" class="social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                        <a href="https://www.linkedin.com/in/draf-linkedin" target="_blank" class="social-link" aria-label="LinkedIn draf"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.linkedin.com/in/dwi-ilham-maulana-992a332a7/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn Dwi Ilham Maulana"><i class="fab fa-linkedin"></i></a>
                     </div>
                 </div>
 
@@ -2438,7 +2447,7 @@
                         <li><i class="fas fa-envelope-open"></i> Email kampus: 1123150008@global.ac.id</li>
                         <li><i class="fas fa-phone"></i> Telepon/WhatsApp: 085691185824</li>
                         <li><i class="fas fa-map-marker-alt"></i> Pasar Kemis, Tangerang, Indonesia</li>
-                        <li><i class="fab fa-linkedin"></i> draf-linkedin</li>
+                        <li><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/dwi-ilham-maulana-992a332a7/" target="_blank" rel="noopener noreferrer">LinkedIn Dwi Ilham Maulana</a></li>
                     </ul>
                 </div>
             </div>
@@ -2451,9 +2460,9 @@
     </main>
 
     <!-- Back to Top Button -->
-    <div class="back-to-top" id="backToTop">
+    <button class="back-to-top" id="backToTop" type="button" aria-label="Kembali ke atas">
         <i class="fas fa-arrow-up"></i>
-    </div>
+    </button>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -2487,6 +2496,7 @@
             }
 
             window.addEventListener('scroll', updateHeaderState);
+            updateHeaderState();
             
             // Back to top button
             const backToTopButton = document.getElementById('backToTop');
@@ -2500,6 +2510,7 @@
             }
 
             window.addEventListener('scroll', updateBackToTopState);
+            updateBackToTopState();
             
             backToTopButton.addEventListener('click', function() {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -2584,6 +2595,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 </script>
+<script src="interactions.js" defer></script>
 
 </body>
 </html>
