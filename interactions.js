@@ -1,4 +1,84 @@
 document.addEventListener('DOMContentLoaded', () => {
+  const portrait = document.querySelector('.hero-image');
+  const portraitImages = [...(portrait?.querySelectorAll('.hero-img') ?? [])];
+  if (portrait && portraitImages.length === 2) {
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let current = 0;
+    let visible = true;
+    let timer;
+    let wheelGestureTimer;
+    let wheelGestureActive = false;
+    let pointerOverPortrait = false;
+    let touchStartY = null;
+    let transitioning = false;
+
+    const showPortrait = (index) => {
+      if (index === current || transitioning || !portraitImages[index].complete || !portraitImages[index].naturalWidth) return;
+      const outgoing = portraitImages[current];
+      const incoming = portraitImages[index];
+      current = index;
+      outgoing.setAttribute('aria-hidden', 'true');
+      incoming.setAttribute('aria-hidden', 'false');
+      if (reducedMotion.matches) {
+        outgoing.classList.remove('is-active');
+        incoming.classList.add('is-active');
+        return;
+      }
+      transitioning = true;
+      outgoing.classList.remove('is-active');
+      outgoing.classList.add('is-exiting');
+      incoming.classList.add('is-active', 'is-entering');
+      setTimeout(() => {
+        outgoing.classList.remove('is-exiting');
+        incoming.classList.remove('is-entering');
+        transitioning = false;
+      }, 750);
+    };
+    const syncTimer = () => {
+      clearInterval(timer);
+      timer = undefined;
+      if (visible && !document.hidden && !reducedMotion.matches) {
+        timer = setInterval(() => showPortrait(1 - current), 3000);
+      }
+    };
+    const advancePortrait = () => {
+      showPortrait(1 - current);
+      syncTimer();
+    };
+
+    if ('IntersectionObserver' in window) {
+      visible = false;
+      const observer = new IntersectionObserver(([entry]) => {
+        visible = entry.isIntersecting;
+        syncTimer();
+      }, { threshold: 0.2 });
+      observer.observe(portrait);
+    } else {
+      syncTimer();
+    }
+    document.addEventListener('visibilitychange', syncTimer);
+    reducedMotion.addEventListener?.('change', syncTimer);
+    portrait.querySelector('.portrait-switch')?.addEventListener('click', advancePortrait);
+    portrait.addEventListener('pointerenter', () => { pointerOverPortrait = true; });
+    portrait.addEventListener('pointerleave', () => { pointerOverPortrait = false; });
+    window.addEventListener('wheel', (event) => {
+      if (!pointerOverPortrait || Math.abs(event.deltaY) < 8) return;
+      if (!wheelGestureActive) advancePortrait();
+      wheelGestureActive = true;
+      clearTimeout(wheelGestureTimer);
+      wheelGestureTimer = setTimeout(() => { wheelGestureActive = false; }, 350);
+    }, { passive: true, capture: true });
+    portrait.addEventListener('touchstart', (event) => {
+      touchStartY = event.touches[0]?.clientY ?? null;
+    }, { passive: true });
+    portrait.addEventListener('touchend', (event) => {
+      if (touchStartY !== null && Math.abs((event.changedTouches[0]?.clientY ?? touchStartY) - touchStartY) > 40) {
+        advancePortrait();
+      }
+      touchStartY = null;
+    }, { passive: true });
+  }
+
   const hamburger = document.getElementById('hamburger');
   const menu = document.querySelector('.nav-menu');
   const updateMenu = () => {
