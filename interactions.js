@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let previewTrigger = null;
   const preview = document.getElementById('lightbox');
   const previewClose = preview?.querySelector('.close');
-  document.querySelectorAll('.view-image, .view-cert').forEach((link) => {
+  document.querySelectorAll('.view-image').forEach((link) => {
     link.addEventListener('click', () => {
       previewTrigger = link;
       previewClose?.focus();

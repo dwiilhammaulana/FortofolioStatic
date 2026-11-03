@@ -1537,25 +1537,6 @@
     animation: zoomIn 0.3s ease-in-out;
 }
 
-.lightbox-frame {
-    display: none;
-    width: min(92vw, 980px);
-    height: min(86vh, 760px);
-    border: 0;
-    border-radius: 10px;
-    background: white;
-    box-shadow: 0 0 25px rgba(0,0,0,0.6);
-    animation: zoomIn 0.3s ease-in-out;
-}
-
-.lightbox-frame.active {
-    display: block;
-}
-
-.lightbox-content.hidden {
-    display: none;
-}
-
 /* Tombol close (X) */
 .lightbox .close {
     position: absolute;
@@ -1650,12 +1631,6 @@
                 grid-template-columns: 1fr;
             }
 
-            .lightbox-frame {
-                width: 94vw;
-                height: 78vh;
-            }
-            
-            
         }
     </style>
     <link rel="stylesheet" href="professional.css">
@@ -2120,8 +2095,7 @@
     <!-- Overlay / Lightbox -->
     <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Pratinjau karya atau sertifikat">
         <button class="close" type="button" aria-label="Tutup pratinjau">&times;</button>
-        <img class="lightbox-content" id="lightbox-img" alt="Preview karya">
-        <iframe class="lightbox-frame" id="lightbox-frame" title="Preview sertifikat"></iframe>
+        <img class="lightbox-content" id="lightbox-img" alt="Pratinjau karya atau sertifikat">
     </div>
 
     <!-- Design Section -->
@@ -2175,7 +2149,7 @@
                     </div>
                 </div>
 
-                <div class="design-item glass-card">
+                <div class="design-item design-item--portrait glass-card">
                     <img src="image/image_8.jpg" alt="Desain ucapan perusahaan" class="design-img" loading="lazy" decoding="async">
                     <div class="design-overlay">
                         <h3 class="photo-title">Desain Ucapan</h3>
@@ -2193,7 +2167,7 @@
                     </div>
                 </div>
 
-                <div class="design-item glass-card">
+                <div class="design-item design-item--portrait glass-card">
                     <img src="image/image_10.jpg" alt="Desain highlight Instagram" class="design-img" loading="lazy" decoding="async">
                     <div class="design-overlay">
                         <h3 class="photo-title">Desain Highlight</h3>
@@ -2211,7 +2185,7 @@
                     </div>
                 </div>
 
-                <div class="design-item glass-card">
+                <div class="design-item design-item--portrait glass-card">
                     <img src="image/image_12.jpg" alt="Desain spanduk promosi" class="design-img" loading="lazy" decoding="async">
                     <div class="design-overlay">
                         <h3 class="photo-title">Desain Spanduk</h3>
@@ -2291,11 +2265,11 @@
                             <span>Dokumen</span>
                         </div>
                         <div class="cert-stat">
-                            <strong>4</strong>
+                            <strong>5</strong>
                             <span>Bidang</span>
                         </div>
                         <div class="cert-stat">
-                            <strong>PDF/JPG</strong>
+                            <strong>PDF/Gambar</strong>
                             <span>Lampiran</span>
                         </div>
                     </div>
@@ -2304,112 +2278,170 @@
                 <div class="cert-highlight">
                     <h3>Fokus Pembelajaran</h3>
                     <div class="cert-tags">
-                        <span class="cert-tag">Data Science</span>
-                        <span class="cert-tag">Microsoft Fabric</span>
+                        <span class="cert-tag">Data Science &amp; Microsoft Fabric</span>
                         <span class="cert-tag">Generative AI</span>
                         <span class="cert-tag">Seminar & Webinar</span>
                         <span class="cert-tag">Organisasi</span>
+                        <span class="cert-tag">Bahasa Inggris</span>
                     </div>
                 </div>
             </div>
 
             <div class="cert-grid">
                 <div class="cert-card">
-                    <div class="cert-icon"><i class="fas fa-chart-line"></i></div>
-                    <h3>Belajar Penerapan Data Science dengan Microsoft Fabric</h3>
-                    <p>Sertifikat penyelesaian kelas Dicoding terkait penerapan data science dan Microsoft Fabric.</p>
-                    <a href="#" class="mini-link view-cert" data-file="sertifikasi/Belajar Penerapan Data Science dengan Microsoft Fabric dicoding.pdf"><i class="fas fa-file-pdf"></i> Lihat Sertifikat</a>
+                    <img src="sertifikasi/previews/data-science.webp" alt="Pratinjau sertifikat Data Science dan Microsoft Fabric" class="cert-img" loading="lazy" decoding="async">
+                    <div class="cert-overlay">
+                        <h3 class="photo-title">Belajar Penerapan Data Science dengan Microsoft Fabric</h3>
+                        <p class="project-meta">Sertifikat penyelesaian kelas Dicoding terkait penerapan data science dan Microsoft Fabric.</p>
+                        <div class="cert-actions">
+                            <a href="#" class="btn view-image" data-img="sertifikasi/previews/data-science.webp">Lihat Sertifikat</a>
+                            <a href="sertifikasi/Belajar Penerapan Data Science dengan Microsoft Fabric dicoding.pdf" class="cert-original" target="_blank" rel="noopener noreferrer">Buka PDF asli</a>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="cert-card">
-                    <div class="cert-icon"><i class="fas fa-database"></i></div>
-                    <h3>Sertifikat Microsoft Fabric Dicoding</h3>
-                    <p>Lampiran sertifikat pembelajaran Microsoft Fabric untuk pengolahan dan analisis data.</p>
-                    <a href="#" class="mini-link view-cert" data-file="sertifikasi/Sertifikat MS fabric dicoding.pdf"><i class="fas fa-file-pdf"></i> Lihat Sertifikat</a>
+                    <img src="sertifikasi/previews/azure-ai.webp" alt="Pratinjau sertifikat Generative AI dengan Microsoft Azure" class="cert-img" loading="lazy" decoding="async">
+                    <div class="cert-overlay">
+                        <h3 class="photo-title">Aplikasi Generative AI dengan Microsoft Azure</h3>
+                        <p class="project-meta">Sertifikat penyelesaian materi generative AI dengan pemanfaatan layanan Microsoft Azure.</p>
+                        <div class="cert-actions">
+                            <a href="#" class="btn view-image" data-img="sertifikasi/previews/azure-ai.webp">Lihat Sertifikat</a>
+                            <a href="sertifikasi/Sertifikat Aplikasi Gen AI dengan Microsoft Azure dicoding.pdf" class="cert-original" target="_blank" rel="noopener noreferrer">Buka PDF asli</a>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="cert-card">
-                    <div class="cert-icon"><i class="fas fa-robot"></i></div>
-                    <h3>Aplikasi Generative AI dengan Microsoft Azure</h3>
-                    <p>Sertifikat penyelesaian materi generative AI dengan pemanfaatan layanan Microsoft Azure.</p>
-                    <a href="#" class="mini-link view-cert" data-file="sertifikasi/Sertifikat Aplikasi Gen AI dengan Microsoft Azure dicoding.pdf"><i class="fas fa-file-pdf"></i> Lihat Sertifikat</a>
+                    <img src="sertifikasi/previews/gemini-ai.webp" alt="Pratinjau sertifikasi Gemini AI" class="cert-img" loading="lazy" decoding="async">
+                    <div class="cert-overlay">
+                        <h3 class="photo-title">Sertifikasi Gemini AI</h3>
+                        <p class="project-meta">Lampiran sertifikasi/pembelajaran seputar pemanfaatan AI untuk kebutuhan produktivitas.</p>
+                        <div class="cert-actions">
+                            <a href="#" class="btn view-image" data-img="sertifikasi/previews/gemini-ai.webp">Lihat Sertifikat</a>
+                            <a href="sertifikasi/Sertifikasi Geminy AI.pdf" class="cert-original" target="_blank" rel="noopener noreferrer">Buka PDF asli</a>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="cert-card">
-                    <div class="cert-icon"><i class="fas fa-brain"></i></div>
-                    <h3>Sertifikasi Gemini AI</h3>
-                    <p>Lampiran sertifikasi/pembelajaran seputar pemanfaatan AI untuk kebutuhan produktivitas.</p>
-                    <a href="#" class="mini-link view-cert" data-file="sertifikasi/Sertifikasi Geminy AI.pdf"><i class="fas fa-file-pdf"></i> Lihat Sertifikat</a>
+                    <img src="sertifikasi/previews/apresiasi.webp" alt="Pratinjau dokumen apresiasi Microsoft dan Dicoding" class="cert-img" loading="lazy" decoding="async">
+                    <div class="cert-overlay">
+                        <h3 class="photo-title">Apresiasi Microsoft & Dicoding</h3>
+                        <p class="project-meta">Dokumen apresiasi kegiatan atau pembelajaran yang berkaitan dengan Microsoft dan Dicoding.</p>
+                        <div class="cert-actions">
+                            <a href="#" class="btn view-image" data-img="sertifikasi/previews/apresiasi.webp">Lihat Sertifikat</a>
+                            <a href="sertifikasi/apresiasi%20Mcs%20%26%20dicoding.pdf" class="cert-original" target="_blank" rel="noopener noreferrer">Buka PDF asli</a>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="cert-card">
-                    <div class="cert-icon"><i class="fas fa-award"></i></div>
-                    <h3>Apresiasi Microsoft & Dicoding</h3>
-                    <p>Dokumen apresiasi kegiatan atau pembelajaran yang berkaitan dengan Microsoft dan Dicoding.</p>
-                    <a href="#" class="mini-link view-cert" data-file="sertifikasi/apresiasi%20Mcs%20%26%20dicoding.pdf"><i class="fas fa-file-pdf"></i> Lihat Sertifikat</a>
+                    <img src="sertifikasi/previews/organisasi.webp" alt="Pratinjau sertifikat organisasi IKSDAM" class="cert-img" loading="lazy" decoding="async">
+                    <div class="cert-overlay">
+                        <h3 class="photo-title">Sertifikat Organisasi IKSDAM</h3>
+                        <p class="project-meta">Dokumen pengalaman organisasi yang mendukung kemampuan kolaborasi dan tanggung jawab.</p>
+                        <a href="#" class="btn view-image" data-img="sertifikasi/Sertifikat Organisasi IKSDAM.jpg">Lihat Sertifikat</a>
+                    </div>
                 </div>
 
                 <div class="cert-card">
-                    <div class="cert-icon"><i class="fas fa-users"></i></div>
-                    <h3>Sertifikat Organisasi IKSDAM</h3>
-                    <p>Dokumen pengalaman organisasi yang mendukung kemampuan kolaborasi dan tanggung jawab.</p>
-                    <a href="#" class="mini-link view-image" data-img="sertifikasi/Sertifikat Organisasi IKSDAM.jpg"><i class="fas fa-image"></i> Lihat Sertifikat</a>
+                    <img src="sertifikasi/previews/sot.webp" alt="Pratinjau sertifikat SOT" class="cert-img" loading="lazy" decoding="async">
+                    <div class="cert-overlay">
+                        <h3 class="photo-title">SOT</h3>
+                        <p class="project-meta">Lampiran sertifikat kegiatan atau pelatihan sebagai bagian dari dokumen pendukung portfolio.</p>
+                        <div class="cert-actions">
+                            <a href="#" class="btn view-image" data-img="sertifikasi/previews/sot.webp">Lihat Sertifikat</a>
+                            <a href="sertifikasi/SOT.pdf" class="cert-original" target="_blank" rel="noopener noreferrer">Buka PDF asli</a>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="cert-card">
-                    <div class="cert-icon"><i class="fas fa-certificate"></i></div>
-                    <h3>SOT</h3>
-                    <p>Lampiran sertifikat kegiatan atau pelatihan sebagai bagian dari dokumen pendukung portfolio.</p>
-                    <a href="#" class="mini-link view-cert" data-file="sertifikasi/SOT.pdf"><i class="fas fa-file-pdf"></i> Lihat Sertifikat</a>
+                    <img src="sertifikasi/previews/sod.webp" alt="Pratinjau sertifikat SOD" class="cert-img" loading="lazy" decoding="async">
+                    <div class="cert-overlay">
+                        <h3 class="photo-title">SOD</h3>
+                        <p class="project-meta">Lampiran sertifikat kegiatan atau pelatihan sebagai bagian dari dokumen pendukung portfolio.</p>
+                        <div class="cert-actions">
+                            <a href="#" class="btn view-image" data-img="sertifikasi/previews/sod.webp">Lihat Sertifikat</a>
+                            <a href="sertifikasi/SOD.pdf" class="cert-original" target="_blank" rel="noopener noreferrer">Buka PDF asli</a>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="cert-card">
-                    <div class="cert-icon"><i class="fas fa-certificate"></i></div>
-                    <h3>SOD</h3>
-                    <p>Lampiran sertifikat kegiatan atau pelatihan sebagai bagian dari dokumen pendukung portfolio.</p>
-                    <a href="#" class="mini-link view-cert" data-file="sertifikasi/SOD.pdf"><i class="fas fa-file-pdf"></i> Lihat Sertifikat</a>
+                    <img src="sertifikasi/previews/seminar-msc.webp" alt="Pratinjau sertifikat seminar MSC" class="cert-img" loading="lazy" decoding="async">
+                    <div class="cert-overlay">
+                        <h3 class="photo-title">Seminar MSC</h3>
+                        <p class="project-meta">Sertifikat peserta seminar sebagai bukti partisipasi kegiatan pengembangan diri.</p>
+                        <div class="cert-actions">
+                            <a href="#" class="btn view-image" data-img="sertifikasi/previews/seminar-msc.webp">Lihat Sertifikat</a>
+                            <a href="sertifikasi/Seminar - MSC.pdf" class="cert-original" target="_blank" rel="noopener noreferrer">Buka PDF asli</a>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="cert-card">
-                    <div class="cert-icon"><i class="fas fa-chalkboard-teacher"></i></div>
-                    <h3>Seminar MSC</h3>
-                    <p>Sertifikat peserta seminar sebagai bukti partisipasi kegiatan pengembangan diri.</p>
-                    <a href="#" class="mini-link view-cert" data-file="sertifikasi/Seminar - MSC.pdf"><i class="fas fa-file-pdf"></i> Lihat Sertifikat</a>
+                    <img src="sertifikasi/previews/webinar-hostinger.webp" alt="Pratinjau sertifikat webinar Hostinger" class="cert-img" loading="lazy" decoding="async">
+                    <div class="cert-overlay">
+                        <h3 class="photo-title">Peserta Webinar Hostinger</h3>
+                        <p class="project-meta">Sertifikat peserta webinar terkait pengembangan wawasan digital dan teknologi web.</p>
+                        <div class="cert-actions">
+                            <a href="#" class="btn view-image" data-img="sertifikasi/previews/webinar-hostinger.webp">Lihat Sertifikat</a>
+                            <a href="sertifikasi/Peserta webinar hostinger.pdf" class="cert-original" target="_blank" rel="noopener noreferrer">Buka PDF asli</a>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="cert-card">
-                    <div class="cert-icon"><i class="fas fa-globe"></i></div>
-                    <h3>Peserta Webinar Hostinger</h3>
-                    <p>Sertifikat peserta webinar terkait pengembangan wawasan digital dan teknologi web.</p>
-                    <a href="#" class="mini-link view-cert" data-file="sertifikasi/Peserta webinar hostinger.pdf"><i class="fas fa-file-pdf"></i> Lihat Sertifikat</a>
+                    <img src="sertifikasi/previews/seminar.webp" alt="Pratinjau sertifikat peserta seminar" class="cert-img" loading="lazy" decoding="async">
+                    <div class="cert-overlay">
+                        <h3 class="photo-title">Peserta Seminar</h3>
+                        <p class="project-meta">Sertifikat peserta seminar untuk melengkapi rekam kegiatan pembelajaran dan pengembangan diri.</p>
+                        <a href="#" class="btn view-image" data-img="sertifikasi/Peserta seminar.png">Lihat Sertifikat</a>
+                    </div>
                 </div>
 
                 <div class="cert-card">
-                    <div class="cert-icon"><i class="fas fa-microphone"></i></div>
-                    <h3>Peserta Seminar</h3>
-                    <p>Sertifikat peserta seminar untuk melengkapi rekam kegiatan pembelajaran dan pengembangan diri.</p>
-                    <a href="#" class="mini-link view-image" data-img="sertifikasi/Peserta seminar.png"><i class="fas fa-image"></i> Lihat Sertifikat</a>
+                    <img src="sertifikasi/previews/seminar-global.webp" alt="Pratinjau sertifikat peserta seminar global" class="cert-img" loading="lazy" decoding="async">
+                    <div class="cert-overlay">
+                        <h3 class="photo-title">Peserta Seminar Global</h3>
+                        <p class="project-meta">Sertifikat peserta seminar global sebagai bukti partisipasi kegiatan wawasan internasional.</p>
+                        <div class="cert-actions">
+                            <a href="#" class="btn view-image" data-img="sertifikasi/previews/seminar-global.webp">Lihat Sertifikat</a>
+                            <a href="sertifikasi/Peserta Seminar global.pdf" class="cert-original" target="_blank" rel="noopener noreferrer">Buka PDF asli</a>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="cert-card">
-                    <div class="cert-icon"><i class="fas fa-earth-asia"></i></div>
-                    <h3>Peserta Seminar Global</h3>
-                    <p>Sertifikat peserta seminar global sebagai bukti partisipasi kegiatan wawasan internasional.</p>
-                    <a href="#" class="mini-link view-cert" data-file="sertifikasi/Peserta Seminar global.pdf"><i class="fas fa-file-pdf"></i> Lihat Sertifikat</a>
+                    <img src="sertifikasi/previews/seminar-jepang.webp" alt="Pratinjau sertifikat peserta seminar Jepang" class="cert-img" loading="lazy" decoding="async">
+                    <div class="cert-overlay">
+                        <h3 class="photo-title">Peserta Seminar Jepang</h3>
+                        <p class="project-meta">Sertifikat peserta seminar bertema Jepang sebagai bagian dari kegiatan tambahan.</p>
+                        <a href="#" class="btn view-image" data-img="sertifikasi/peserta seminar jepang.jpeg">Lihat Sertifikat</a>
+                    </div>
                 </div>
 
                 <div class="cert-card">
-                    <div class="cert-icon"><i class="fas fa-flag"></i></div>
-                    <h3>Peserta Seminar Jepang</h3>
-                    <p>Sertifikat peserta seminar bertema Jepang sebagai bagian dari kegiatan tambahan.</p>
-                    <a href="#" class="mini-link view-image" data-img="sertifikasi/peserta seminar jepang.jpeg"><i class="fas fa-image"></i> Lihat Sertifikat</a>
+                    <img src="sertifikasi/previews/seminar-core-it.webp" alt="Pratinjau sertifikat peserta seminar Core IT" class="cert-img" loading="lazy" decoding="async">
+                    <div class="cert-overlay">
+                        <h3 class="photo-title">Peserta Seminar Core IT</h3>
+                        <p class="project-meta">Sertifikat peserta seminar terkait bidang teknologi informasi.</p>
+                        <a href="#" class="btn view-image" data-img="sertifikasi/peserta seminar core it.png">Lihat Sertifikat</a>
+                    </div>
                 </div>
 
                 <div class="cert-card">
-                    <div class="cert-icon"><i class="fas fa-network-wired"></i></div>
-                    <h3>Peserta Seminar Core IT</h3>
-                    <p>Sertifikat peserta seminar terkait bidang teknologi informasi.</p>
-                    <a href="#" class="mini-link view-image" data-img="sertifikasi/peserta seminar core it.png"><i class="fas fa-image"></i> Lihat Sertifikat</a>
+                    <img src="sertifikasi/previews/toeic.webp" alt="Pratinjau sertifikat hasil tes TOEIC" class="cert-img" loading="lazy" decoding="async">
+                    <div class="cert-overlay">
+                        <h3 class="photo-title">Hasil Tes TOEIC</h3>
+                        <p class="project-meta">Sertifikat hasil tes bahasa Inggris dari Global Institute.</p>
+                        <div class="cert-actions">
+                            <a href="#" class="btn view-image" data-img="sertifikasi/previews/toeic.webp">Lihat Sertifikat</a>
+                            <a href="sertifikasi/Toeic.pdf" class="cert-original" target="_blank" rel="noopener noreferrer">Buka PDF asli</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -2559,7 +2591,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     const lightbox = document.getElementById("lightbox");
     const lightboxImg = document.getElementById("lightbox-img");
-    const lightboxFrame = document.getElementById("lightbox-frame");
     const closeBtn = document.querySelector(".lightbox .close");
 
     function openLightbox() {
@@ -2571,29 +2602,15 @@ document.addEventListener("DOMContentLoaded", () => {
         lightbox.classList.remove("active");
         document.body.style.overflow = "";
         lightboxImg.src = "";
-        lightboxFrame.src = "";
     }
 
-    // Klik tombol "Lihat Detail" untuk gambar karya dan sertifikat berbentuk gambar.
+    // Klik tombol untuk melihat karya atau sertifikat.
     document.querySelectorAll(".view-image").forEach(btn => {
         btn.addEventListener("click", e => {
             e.preventDefault();
             const imgSrc = btn.dataset.img;
             lightboxImg.src = imgSrc;
-            lightboxImg.classList.remove("hidden");
-            lightboxFrame.classList.remove("active");
-            openLightbox();
-        });
-    });
-
-    // Klik tombol "Lihat Sertifikat" untuk sertifikat berbentuk PDF.
-    document.querySelectorAll(".view-cert").forEach(btn => {
-        btn.addEventListener("click", e => {
-            e.preventDefault();
-            const certSrc = btn.dataset.file;
-            lightboxFrame.src = certSrc;
-            lightboxFrame.classList.add("active");
-            lightboxImg.classList.add("hidden");
+            lightboxImg.alt = btn.closest(".photo-item, .design-item, .dev-item, .cert-card")?.querySelector("img")?.alt || "Pratinjau karya atau sertifikat";
             openLightbox();
         });
     });
