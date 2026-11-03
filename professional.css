@@ -263,10 +263,8 @@ header { background: rgba(255,255,255,.97); backdrop-filter: none; -webkit-backd
   from { transform: translate3d(0, 0, 0); }
   to { transform: translate3d(0, -100%, 0); }
 }
-.portrait-switch { position: absolute; right: 16px; bottom: 16px; z-index: 3; width: 42px; height: 42px; border: 1px solid rgba(65,119,170,.28); border-radius: 50%; background: rgba(255,255,255,.9); color: #205a87; box-shadow: 0 5px 18px rgba(31,79,122,.15); font: 1.6rem/1 sans-serif; cursor: pointer; transition: background-color .2s ease, transform .2s ease; }
-.portrait-switch:hover { background: #eaf5ff; transform: rotate(30deg); }
 @media (prefers-reduced-motion: reduce) {
-  .portrait-frame .hero-img, .portrait-switch { transition: none; }
+  .portrait-frame .hero-img { transition: none; }
   .portrait-frame .hero-img.is-entering, .portrait-frame .hero-img.is-exiting { animation: none; }
 }
 .photo-item, .design-item, .dev-item { transform: none; transition: transform .22s ease, border-color .22s ease; }

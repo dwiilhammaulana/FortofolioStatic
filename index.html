@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#f7faff">
+    <meta name="theme-color" content="#171717">
     <meta name="description" content="Portfolio Dwi Ilham Maulana: fotografi, desain grafis, administrasi marketplace, dan pengembangan web.">
     <title>Dwi Ilham Maulana - Graphic Design, Marketplace Admin & Web Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1634,6 +1634,7 @@
         }
     </style>
     <link rel="stylesheet" href="professional.css">
+    <link rel="stylesheet" href="editorial.css?v=icons">
       <link rel="icon" type="image/png" href="dwi logo2.png">
 </head>
 <body>
@@ -1652,7 +1653,7 @@
                 <i class="fas fa-bars"></i>
             </button>
             
-            <ul class="nav-menu">
+            <ul class="nav-menu" id="primary-navigation">
                 <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
                 <li class="nav-item"><a href="#about" class="nav-link">Tentang</a></li>
                 <li class="nav-item"><a href="#experience" class="nav-link">Pengalaman</a></li>
@@ -1685,7 +1686,6 @@
                 <div class="portrait-frame">
                     <img src="ilham-hero.webp" alt="Dwi Ilham Maulana mengenakan jaket kuning" class="hero-img is-active" fetchpriority="high" decoding="async" width="1022" height="1538">
                     <img src="ilham2-hero.webp" alt="Dwi Ilham Maulana mengenakan seragam kerja" class="hero-img" aria-hidden="true" decoding="async" width="1024" height="1367">
-                    <button class="portrait-switch" type="button" aria-label="Ganti foto profil"><span aria-hidden="true">&#8635;</span></button>
                 </div>
             </div>
 
@@ -2518,24 +2518,6 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Mobile Navigation
-            const hamburger = document.getElementById('hamburger');
-            const navMenu = document.querySelector('.nav-menu');
-            
-            hamburger.addEventListener('click', function() {
-                navMenu.classList.toggle('active');
-                hamburger.innerHTML = navMenu.classList.contains('active') ? 
-                    '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
-            });
-            
-            // Close mobile nav when clicking on a link
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.addEventListener('click', () => {
-                    navMenu.classList.remove('active');
-                    hamburger.innerHTML = '<i class="fas fa-bars"></i>';
-                });
-            });
-            
             // Header scroll effect
             const header = document.getElementById('header');
 

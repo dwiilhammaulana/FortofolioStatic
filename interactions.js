@@ -6,10 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let current = 0;
     let visible = true;
     let timer;
-    let wheelGestureTimer;
-    let wheelGestureActive = false;
-    let pointerOverPortrait = false;
-    let touchStartY = null;
     let transitioning = false;
 
     const showPortrait = (index) => {
@@ -38,12 +34,8 @@ document.addEventListener('DOMContentLoaded', () => {
       clearInterval(timer);
       timer = undefined;
       if (visible && !document.hidden && !reducedMotion.matches) {
-        timer = setInterval(() => showPortrait(1 - current), 3000);
+        timer = setInterval(() => showPortrait(1 - current), 5000);
       }
-    };
-    const advancePortrait = () => {
-      showPortrait(1 - current);
-      syncTimer();
     };
 
     if ('IntersectionObserver' in window) {
@@ -58,36 +50,34 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     document.addEventListener('visibilitychange', syncTimer);
     reducedMotion.addEventListener?.('change', syncTimer);
-    portrait.querySelector('.portrait-switch')?.addEventListener('click', advancePortrait);
-    portrait.addEventListener('pointerenter', () => { pointerOverPortrait = true; });
-    portrait.addEventListener('pointerleave', () => { pointerOverPortrait = false; });
-    window.addEventListener('wheel', (event) => {
-      if (!pointerOverPortrait || Math.abs(event.deltaY) < 8) return;
-      if (!wheelGestureActive) advancePortrait();
-      wheelGestureActive = true;
-      clearTimeout(wheelGestureTimer);
-      wheelGestureTimer = setTimeout(() => { wheelGestureActive = false; }, 350);
-    }, { passive: true, capture: true });
-    portrait.addEventListener('touchstart', (event) => {
-      touchStartY = event.touches[0]?.clientY ?? null;
-    }, { passive: true });
-    portrait.addEventListener('touchend', (event) => {
-      if (touchStartY !== null && Math.abs((event.changedTouches[0]?.clientY ?? touchStartY) - touchStartY) > 40) {
-        advancePortrait();
-      }
-      touchStartY = null;
-    }, { passive: true });
   }
 
   const hamburger = document.getElementById('hamburger');
   const menu = document.querySelector('.nav-menu');
-  const updateMenu = () => {
-    const open = Boolean(menu?.classList.contains('active'));
+  const menuIcon = hamburger?.querySelector('i');
+  hamburger?.setAttribute('aria-controls', 'primary-navigation');
+  const setMenuOpen = (open) => {
+    menu?.classList.toggle('active', open);
     hamburger?.setAttribute('aria-expanded', String(open));
     hamburger?.setAttribute('aria-label', open ? 'Tutup menu' : 'Buka menu');
+    menuIcon?.classList.toggle('fa-bars', !open);
+    menuIcon?.classList.toggle('fa-times', open);
   };
-  hamburger?.addEventListener('click', updateMenu);
-  menu?.querySelectorAll('a').forEach((link) => link.addEventListener('click', updateMenu));
+  hamburger?.addEventListener('click', () => setMenuOpen(!menu?.classList.contains('active')));
+  document.querySelector('.logo')?.addEventListener('click', () => setMenuOpen(false));
+  menu?.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => setMenuOpen(false)));
+  document.addEventListener('click', (event) => {
+    if (menu?.classList.contains('active') && !event.target.closest('#header')) setMenuOpen(false);
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && menu?.classList.contains('active')) {
+      setMenuOpen(false);
+      hamburger?.focus();
+    }
+  });
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 900 && menu?.classList.contains('active')) setMenuOpen(false);
+  });
 
   let previewTrigger = null;
   const preview = document.getElementById('lightbox');
