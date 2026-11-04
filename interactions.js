@@ -52,6 +52,63 @@ document.addEventListener('DOMContentLoaded', () => {
     reducedMotion.addEventListener?.('change', syncTimer);
   }
 
+  const workShowcase = document.querySelector('.skill-photo-showcase');
+  const workSlides = [...(workShowcase?.querySelectorAll('.work-photo-slide') ?? [])];
+  const workControls = [...(workShowcase?.querySelectorAll('[data-slide]') ?? [])];
+  const workCounter = workShowcase?.querySelector('[data-slide-counter]');
+  if (workShowcase && workSlides.length > 1) {
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let current = 0;
+    let visible = true;
+    let timer;
+
+    const showWork = (index) => {
+      const next = (index + workSlides.length) % workSlides.length;
+      if (next === current) return;
+      workSlides.forEach((slide, slideIndex) => {
+        const active = slideIndex === next;
+        slide.classList.toggle('is-active', active);
+        slide.setAttribute('aria-hidden', String(!active));
+        slide.tabIndex = active ? 0 : -1;
+      });
+      workControls.forEach((control, controlIndex) => {
+        const active = controlIndex === next;
+        control.classList.toggle('is-active', active);
+        control.setAttribute('aria-pressed', String(active));
+      });
+      current = next;
+      if (workCounter) workCounter.textContent = String(current + 1).padStart(2, '0');
+    };
+
+    const syncTimer = () => {
+      clearInterval(timer);
+      timer = undefined;
+      if (visible && !document.hidden && !reducedMotion.matches) {
+        timer = setInterval(() => showWork(current + 1), 5000);
+      }
+    };
+
+    workControls.forEach((control, index) => {
+      control.addEventListener('click', () => {
+        showWork(index);
+        syncTimer();
+      });
+    });
+
+    if ('IntersectionObserver' in window) {
+      visible = false;
+      const observer = new IntersectionObserver(([entry]) => {
+        visible = entry.isIntersecting;
+        syncTimer();
+      }, { threshold: 0.2 });
+      observer.observe(workShowcase);
+    } else {
+      syncTimer();
+    }
+    document.addEventListener('visibilitychange', syncTimer);
+    reducedMotion.addEventListener?.('change', syncTimer);
+  }
+
   const hamburger = document.getElementById('hamburger');
   const menu = document.querySelector('.nav-menu');
   const menuIcon = hamburger?.querySelector('i');

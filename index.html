@@ -1634,7 +1634,7 @@
         }
     </style>
     <link rel="stylesheet" href="professional.css">
-    <link rel="stylesheet" href="editorial.css?v=icons">
+    <link rel="stylesheet" href="editorial.css?v=fixed-mixed-theme">
       <link rel="icon" type="image/png" href="dwi logo2.png">
 </head>
 <body>
@@ -1680,7 +1680,7 @@
                     <a href="CV Dwi Ilham Maulana.pdf" class="btn btn-outline"><i class="fas fa-file-download"></i> Download CV</a>
                 </div>
             </div>
-            
+
             <div class="hero-image">
                 <div class="portrait-glow" aria-hidden="true"></div>
                 <div class="portrait-frame">
@@ -1861,11 +1861,12 @@
         <div class="container">
             <h2 class="section-title">Keahlian & Tools</h2>
             <p class="section-desc">Kombinasi kemampuan visual, marketplace, e-commerce, operasional, dan teknis yang saya gunakan dalam pekerjaan dan project.</p>
-            
+
             <div class="skills-container">
                 <!-- Photography Skills -->
-                <div class="skill-category photography">
+                <div class="skill-category photography" id="photography" style="--stack-index: 0">
                     <div class="skill-header">
+                        <span class="skill-index">01</span>
                         <div class="skill-icon">
                             <i class="fas fa-camera"></i>
                         </div>
@@ -1886,11 +1887,37 @@
                         </div>
                     </div>
                     <p class="skill-note">Terbiasa mengambil dokumentasi acara, memilih angle, mengatur komposisi, dan melakukan editing dasar warna/foto.</p>
+                    <div class="skill-photo-showcase" aria-label="Slideshow tiga karya fotografi">
+                        <div class="skill-photo-caption">
+                            <span>KARYA FOTOGRAFI</span>
+                            <span><strong data-slide-counter>01</strong> / 03 &nbsp;·&nbsp; BERGANTI / 5 DETIK</span>
+                        </div>
+                        <div class="work-photo-frame">
+                            <a href="#" class="work-photo-slide view-image is-active" data-img="image/image_1.JPG" aria-hidden="false">
+                                <img src="image/image_1-thumb.webp" alt="Dokumentasi HUT RI 80" loading="lazy" decoding="async">
+                                <span class="work-photo-meta"><strong>HUT RI 80</strong><small>Fotografi Dokumentasi · Editing Lightroom</small></span>
+                            </a>
+                            <a href="#" class="work-photo-slide view-image" data-img="image/image_2.JPG" aria-hidden="true" tabindex="-1">
+                                <img src="image/image_2-thumb.webp" alt="Dokumentasi kegiatan HUT RI 80" loading="lazy" decoding="async">
+                                <span class="work-photo-meta"><strong>HUT RI 80</strong><small>Event Photography · Canon 3000D</small></span>
+                            </a>
+                            <a href="#" class="work-photo-slide view-image" data-img="image/image_4.JPG" aria-hidden="true" tabindex="-1">
+                                <img src="image/image_4-thumb.webp" alt="Foto acara HUT RI 80" loading="lazy" decoding="async">
+                                <span class="work-photo-meta"><strong>HUT RI 80</strong><small>Dokumentasi Acara</small></span>
+                            </a>
+                        </div>
+                        <div class="work-photo-controls" aria-label="Pilih karya fotografi">
+                            <button type="button" class="is-active" data-slide="0" aria-label="Tampilkan foto pertama" aria-pressed="true"></button>
+                            <button type="button" data-slide="1" aria-label="Tampilkan foto kedua" aria-pressed="false"></button>
+                            <button type="button" data-slide="2" aria-label="Tampilkan foto ketiga" aria-pressed="false"></button>
+                        </div>
+                    </div>
                 </div>
                 
                 <!-- Design Skills -->
-                <div class="skill-category design">
+                <div class="skill-category design graphic-design" id="design" style="--stack-index: 1">
                     <div class="skill-header">
+                        <span class="skill-index">02</span>
                         <div class="skill-icon">
                             <i class="fas fa-paint-brush"></i>
                         </div>
@@ -1911,11 +1938,60 @@
                         </div>
                     </div>
                     <p class="skill-note">Mengerjakan materi promosi, campaign, logo sederhana, banner, email marketing, dan kebutuhan visual media sosial.</p>
+                    <div class="skill-design-showcase" aria-label="Grid sepuluh karya desain grafis">
+                        <div class="skill-design-caption">
+                            <span>KARYA DESAIN GRAFIS</span>
+                            <span>10 KARYA · KLIK UNTUK MEMPERBESAR</span>
+                        </div>
+                        <div class="skill-design-grid">
+                            <a href="#" class="skill-design-card view-image" data-img="image/banner1.png">
+                                <img src="image/banner1-thumb.webp" alt="Banner campaign gratis ongkir PT Tulip Tonata Indonesia" loading="lazy" decoding="async">
+                                <span><strong>Banner Campaign</strong><small>Gratis ongkir kurir toko</small></span>
+                            </a>
+                            <a href="#" class="skill-design-card view-image" data-img="image/banner2.png">
+                                <img src="image/banner2-thumb.webp" alt="Banner campaign diskon pengiriman PT Tulip Tonata Indonesia" loading="lazy" decoding="async">
+                                <span><strong>Banner Campaign</strong><small>Diskon pengiriman reguler</small></span>
+                            </a>
+                            <a href="#" class="skill-design-card view-image" data-img="image/image_15.jpg">
+                                <img src="image/image_15.jpg" alt="Desain logo Wilana" loading="lazy" decoding="async">
+                                <span><strong>Desain Logo</strong><small>Brand identity</small></span>
+                            </a>
+                            <a href="#" class="skill-design-card view-image" data-img="image/image_6.jpg">
+                                <img src="image/image_6.jpg" alt="Desain campaign promosi" loading="lazy" decoding="async">
+                                <span><strong>Campaign Promosi</strong><small>Photoshop · CorelDRAW</small></span>
+                            </a>
+                            <a href="#" class="skill-design-card view-image" data-img="image/image_7.jpg">
+                                <img src="image/image_7.jpg" alt="Desain campaign brand" loading="lazy" decoding="async">
+                                <span><strong>Campaign Brand</strong><small>Desain promosi</small></span>
+                            </a>
+                            <a href="#" class="skill-design-card view-image" data-img="image/image_8.jpg">
+                                <img src="image/image_8.jpg" alt="Desain ucapan perusahaan" loading="lazy" decoding="async">
+                                <span><strong>Desain Ucapan</strong><small>Social media</small></span>
+                            </a>
+                            <a href="#" class="skill-design-card view-image" data-img="image/image_9.jpg">
+                                <img src="image/image_9.jpg" alt="Desain promo gratis ongkir" loading="lazy" decoding="async">
+                                <span><strong>Gratis Ongkir</strong><small>Promo design</small></span>
+                            </a>
+                            <a href="#" class="skill-design-card view-image" data-img="image/image_10.jpg">
+                                <img src="image/image_10.jpg" alt="Desain highlight Instagram" loading="lazy" decoding="async">
+                                <span><strong>Desain Highlight</strong><small>Instagram highlight</small></span>
+                            </a>
+                            <a href="#" class="skill-design-card view-image" data-img="image/image_11.jpg">
+                                <img src="image/image_11.jpg" alt="Desain email marketing" loading="lazy" decoding="async">
+                                <span><strong>Email Marketing</strong><small>Layout promosi</small></span>
+                            </a>
+                            <a href="#" class="skill-design-card view-image" data-img="image/image_12.jpg">
+                                <img src="image/image_12.jpg" alt="Desain spanduk promosi" loading="lazy" decoding="async">
+                                <span><strong>Desain Spanduk</strong><small>Banner design</small></span>
+                            </a>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Marketplace Skills -->
-                <div class="skill-category design">
+                <div class="skill-category design marketplace" style="--stack-index: 2" data-watermark="MARKETPLACE">
                     <div class="skill-header">
+                        <span class="skill-index">03</span>
                         <div class="skill-icon">
                             <i class="fas fa-store"></i>
                         </div>
@@ -1952,8 +2028,9 @@
 
                 
                 <!-- Development Skills -->
-                <div class="skill-category development">
+                <div class="skill-category development web-development" id="development" style="--stack-index: 3">
                     <div class="skill-header">
+                        <span class="skill-index">04</span>
                         <div class="skill-icon">
                             <i class="fas fa-code"></i>
                         </div>
@@ -1989,11 +2066,40 @@
 
                     </div>
                     <p class="skill-note">Mampu membuat halaman web, sistem CRUD, dashboard admin, database MySQL, dan fitur dasar aplikasi web.</p>
+                    <div class="skill-web-showcase" aria-label="Grid lima project web development">
+                        <div class="skill-web-caption">
+                            <span>PROJECT WEB DEVELOPMENT</span>
+                            <span>05 PROJECT · KLIK UNTUK MEMPERBESAR</span>
+                        </div>
+                        <div class="skill-web-grid">
+                            <a href="#" class="skill-web-card view-image" data-img="image/image_20.png">
+                                <img src="image/image_20.png" alt="Marketplace mobil" loading="lazy" decoding="async">
+                                <span><strong>Marketplace Mobil</strong><small>Laravel · PHP · MySQL</small></span>
+                            </a>
+                            <a href="#" class="skill-web-card view-image" data-img="image/image_21.png">
+                                <img src="image/image_21.png" alt="Admin panel pembayaran" loading="lazy" decoding="async">
+                                <span><strong>Admin Panel</strong><small>CRUD · Dashboard</small></span>
+                            </a>
+                            <a href="#" class="skill-web-card view-image" data-img="image/image_22.png">
+                                <img src="image/image_22.png" alt="Aplikasi presensi" loading="lazy" decoding="async">
+                                <span><strong>Presensi</strong><small>Web App · MySQL</small></span>
+                            </a>
+                            <a href="#" class="skill-web-card view-image" data-img="image/image_23.png">
+                                <img src="image/image_23.png" alt="Point of sales UMKM" loading="lazy" decoding="async">
+                                <span><strong>Point of Sales</strong><small>POS · PHP · MySQL</small></span>
+                            </a>
+                            <a href="#" class="skill-web-card view-image" data-img="image/image_24.png">
+                                <img src="image/image_24.png" alt="Sistem pembayaran kuliah" loading="lazy" decoding="async">
+                                <span><strong>Pembayaran Kuliah</strong><small>Sistem akademik</small></span>
+                            </a>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Operations Skills -->
-                <div class="skill-category photography">
+                <div class="skill-category operations" style="--stack-index: 4" data-watermark="OPERASIONAL">
                     <div class="skill-header">
+                        <span class="skill-index">05</span>
                         <div class="skill-icon">
                             <i class="fas fa-people-carry"></i>
                         </div>
@@ -2057,41 +2163,6 @@
         </div>
     </section>
 
-    <!-- Photography Section -->
-    <section class="section photography" id="photography">
-        <div class="container">
-            <h2 class="section-title">Karya Fotografi</h2>
-            <div class="photo-grid">
-                <div class="photo-item glass-card">
-                    <img src="image/image_1-thumb.webp" alt="Dokumentasi HUT RI 80" class="photo-img" loading="lazy" decoding="async">
-                    <div class="photo-overlay">
-                        <h3 class="photo-title">HUT RI 80</h3>
-                        <p class="project-meta">Fotografi Dokumentasi - Editing Lightroom</p>
-                        <a href="#" class="btn view-image" data-img="image/image_1.JPG">Lihat Detail</a>
-                    </div>
-                </div>
-
-                <div class="photo-item glass-card">
-                    <img src="image/image_2-thumb.webp" alt="Dokumentasi kegiatan HUT RI 80" class="photo-img" loading="lazy" decoding="async">
-                    <div class="photo-overlay">
-                        <h3 class="photo-title">HUT RI 80</h3>
-                        <p class="project-meta">Event Photography - Canon 3000D</p>
-                        <a href="#" class="btn view-image" data-img="image/image_2.JPG">Lihat Detail</a>
-                    </div>
-                </div>
-
-                <div class="photo-item glass-card">
-                    <img src="image/image_4-thumb.webp" alt="Foto acara HUT RI 80" class="photo-img" loading="lazy" decoding="async">
-                    <div class="photo-overlay">
-                        <h3 class="photo-title">HUT RI 80</h3>
-                        <p class="project-meta">Dokumentasi Acara - Draf Lokasi</p>
-                        <a href="#" class="btn view-image" data-img="image/image_4.JPG">Lihat Detail</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Overlay / Lightbox -->
     <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Pratinjau karya atau sertifikat">
         <button class="close" type="button" aria-label="Tutup pratinjau">&times;</button>
@@ -2099,7 +2170,7 @@
     </div>
 
     <!-- Design Section -->
-    <section class="section design" id="design">
+    <section class="section design" hidden aria-hidden="true">
         <div class="container">
             <h2 class="section-title">Desain Grafis</h2>
 
@@ -2198,7 +2269,7 @@
     </section>
 
     <!-- Development Section -->
-    <section class="section development" id="development">
+    <section class="section development" hidden aria-hidden="true">
         <div class="container">
             <h2 class="section-title">Web Development</h2>
 
@@ -2261,11 +2332,11 @@
                     <h3>Ringkasan Sertifikasi</h3>
                     <div class="cert-stats">
                         <div class="cert-stat">
-                            <strong>14</strong>
+                            <strong>15</strong>
                             <span>Dokumen</span>
                         </div>
                         <div class="cert-stat">
-                            <strong>5</strong>
+                            <strong>6</strong>
                             <span>Bidang</span>
                         </div>
                         <div class="cert-stat">
@@ -2283,6 +2354,7 @@
                         <span class="cert-tag">Seminar & Webinar</span>
                         <span class="cert-tag">Organisasi</span>
                         <span class="cert-tag">Bahasa Inggris</span>
+                        <span class="cert-tag">Lomba Desain</span>
                     </div>
                 </div>
             </div>
@@ -2336,7 +2408,7 @@
                     </div>
                 </div>
 
-                <div class="cert-card">
+                <div class="cert-card cert-priority-iksdam">
                     <img src="sertifikasi/previews/organisasi.webp" alt="Pratinjau sertifikat organisasi IKSDAM" class="cert-img" loading="lazy" decoding="async">
                     <div class="cert-overlay">
                         <h3 class="photo-title">Sertifikat Organisasi IKSDAM</h3>
@@ -2369,7 +2441,7 @@
                     </div>
                 </div>
 
-                <div class="cert-card">
+                <div class="cert-card cert-participation">
                     <img src="sertifikasi/previews/seminar-msc.webp" alt="Pratinjau sertifikat seminar MSC" class="cert-img" loading="lazy" decoding="async">
                     <div class="cert-overlay">
                         <h3 class="photo-title">Seminar MSC</h3>
@@ -2381,7 +2453,7 @@
                     </div>
                 </div>
 
-                <div class="cert-card">
+                <div class="cert-card cert-participation">
                     <img src="sertifikasi/previews/webinar-hostinger.webp" alt="Pratinjau sertifikat webinar Hostinger" class="cert-img" loading="lazy" decoding="async">
                     <div class="cert-overlay">
                         <h3 class="photo-title">Peserta Webinar Hostinger</h3>
@@ -2393,7 +2465,7 @@
                     </div>
                 </div>
 
-                <div class="cert-card">
+                <div class="cert-card cert-participation">
                     <img src="sertifikasi/previews/seminar.webp" alt="Pratinjau sertifikat peserta seminar" class="cert-img" loading="lazy" decoding="async">
                     <div class="cert-overlay">
                         <h3 class="photo-title">Peserta Seminar</h3>
@@ -2402,7 +2474,7 @@
                     </div>
                 </div>
 
-                <div class="cert-card">
+                <div class="cert-card cert-participation">
                     <img src="sertifikasi/previews/seminar-global.webp" alt="Pratinjau sertifikat peserta seminar global" class="cert-img" loading="lazy" decoding="async">
                     <div class="cert-overlay">
                         <h3 class="photo-title">Peserta Seminar Global</h3>
@@ -2414,7 +2486,7 @@
                     </div>
                 </div>
 
-                <div class="cert-card">
+                <div class="cert-card cert-participation">
                     <img src="sertifikasi/previews/seminar-jepang.webp" alt="Pratinjau sertifikat peserta seminar Jepang" class="cert-img" loading="lazy" decoding="async">
                     <div class="cert-overlay">
                         <h3 class="photo-title">Peserta Seminar Jepang</h3>
@@ -2423,7 +2495,7 @@
                     </div>
                 </div>
 
-                <div class="cert-card">
+                <div class="cert-card cert-participation">
                     <img src="sertifikasi/previews/seminar-core-it.webp" alt="Pratinjau sertifikat peserta seminar Core IT" class="cert-img" loading="lazy" decoding="async">
                     <div class="cert-overlay">
                         <h3 class="photo-title">Peserta Seminar Core IT</h3>
@@ -2432,7 +2504,7 @@
                     </div>
                 </div>
 
-                <div class="cert-card">
+                <div class="cert-card cert-priority-toeic">
                     <img src="sertifikasi/previews/toeic.webp" alt="Pratinjau sertifikat hasil tes TOEIC" class="cert-img" loading="lazy" decoding="async">
                     <div class="cert-overlay">
                         <h3 class="photo-title">Hasil Tes TOEIC</h3>
@@ -2440,6 +2512,18 @@
                         <div class="cert-actions">
                             <a href="#" class="btn view-image" data-img="sertifikasi/previews/toeic.webp">Lihat Sertifikat</a>
                             <a href="sertifikasi/Toeic.pdf" class="cert-original" target="_blank" rel="noopener noreferrer">Buka PDF asli</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cert-card cert-participation">
+                    <img src="sertifikasi/sertifikat lomba design.png" alt="Pratinjau sertifikat apresiasi Lomba Poster Digital GEMILANG 2026" class="cert-img" loading="lazy" decoding="async">
+                    <div class="cert-overlay">
+                        <h3 class="photo-title">Lomba Poster Digital GEMILANG 2026</h3>
+                        <p class="project-meta">Sertifikat apresiasi sebagai peserta lomba poster digital GEMILANG 2026 pada 23–25 Oktober 2026.</p>
+                        <div class="cert-actions">
+                            <a href="#" class="btn view-image" data-img="sertifikasi/sertifikat lomba design.png">Lihat Sertifikat</a>
+                            <a href="sertifikasi/sertifikat lomba design.png" class="cert-original" target="_blank" rel="noopener noreferrer">Buka gambar asli</a>
                         </div>
                     </div>
                 </div>
@@ -2551,6 +2635,30 @@
             });
             
             // Smooth scrolling for anchor links
+            function getDocumentTop(element) {
+                if (element.classList.contains('skill-category') && element.parentElement?.classList.contains('skills-container')) {
+                    const stack = element.parentElement;
+                    let top = window.scrollY + stack.getBoundingClientRect().top;
+
+                    for (const card of stack.children) {
+                        if (card === element) break;
+                        top += card.offsetHeight + (parseFloat(getComputedStyle(card).marginBottom) || 0);
+                    }
+
+                    return top;
+                }
+
+                let top = 0;
+                let current = element;
+
+                while (current) {
+                    top += current.offsetTop;
+                    current = current.offsetParent;
+                }
+
+                return top;
+            }
+
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
                     e.preventDefault();
@@ -2561,7 +2669,9 @@
                     const targetElement = document.querySelector(targetId);
                     if (targetElement) {
                         window.scrollTo({
-                            top: targetElement.offsetTop - 80,
+                            // offsetTop keeps pointing at the card's natural place even
+                            // while another sticky layer is currently covering it.
+                            top: getDocumentTop(targetElement) - 80,
                             behavior: 'smooth'
                         });
                     }
@@ -2592,7 +2702,7 @@ document.addEventListener("DOMContentLoaded", () => {
             e.preventDefault();
             const imgSrc = btn.dataset.img;
             lightboxImg.src = imgSrc;
-            lightboxImg.alt = btn.closest(".photo-item, .design-item, .dev-item, .cert-card")?.querySelector("img")?.alt || "Pratinjau karya atau sertifikat";
+            lightboxImg.alt = btn.closest(".photo-item, .work-photo-slide, .skill-design-card, .skill-web-card, .design-item, .dev-item, .cert-card")?.querySelector("img")?.alt || "Pratinjau karya atau sertifikat";
             openLightbox();
         });
     });
