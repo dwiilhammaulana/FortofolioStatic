@@ -109,6 +109,119 @@ document.addEventListener('DOMContentLoaded', () => {
     reducedMotion.addEventListener?.('change', syncTimer);
   }
 
+  const phoneStage = document.querySelector('.about-phone-anatomy');
+  const phoneObject = phoneStage?.querySelector('object');
+  if (phoneStage && phoneObject) {
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const state = { x: 0, y: 0, lift: 0, targetX: 0, targetY: 0, targetLift: 0 };
+    let handset;
+    let dial;
+    let frame = 0;
+    let lastTime = 0;
+    let visible = true;
+
+    const connectPhoneParts = () => {
+      const phoneDocument = phoneObject.contentDocument;
+      handset = phoneDocument?.querySelector('[data-assembly="handset"]');
+      dial = phoneDocument?.querySelector('[data-assembly="dial"]');
+      [handset, dial].forEach((part) => {
+        if (!part) return;
+        part.style.transformBox = 'fill-box';
+        part.style.transformOrigin = 'center';
+      });
+    };
+
+    const drawPhone = () => {
+      const { x, y, lift } = state;
+      phoneObject.style.transform = `perspective(540px) rotateX(${(-y * 3).toFixed(2)}deg) rotateY(${(x * 4).toFixed(2)}deg) translateY(${(-lift * 2).toFixed(2)}px) rotate(-1.5deg) scale(${(1.03 + lift * .025).toFixed(3)})`;
+      if (handset) handset.style.transform = `translate(${(x * 2).toFixed(2)}px, ${(-lift * 8 + y).toFixed(2)}px) rotate(${(x * 1.4).toFixed(2)}deg)`;
+      if (dial) dial.style.transform = `rotate(${(x * 12 + lift * 5).toFixed(2)}deg)`;
+    };
+
+    const settled = () => (
+      Math.abs(state.x - state.targetX) < .002 &&
+      Math.abs(state.y - state.targetY) < .002 &&
+      Math.abs(state.lift - state.targetLift) < .002
+    );
+
+    const tick = (time) => {
+      const delta = lastTime ? Math.min((time - lastTime) / 1000, 1 / 30) : 1 / 60;
+      lastTime = time;
+      const follow = (value, target, response) => reducedMotion.matches
+        ? target
+        : value + (target - value) * (1 - Math.exp(-delta / response));
+      state.x = follow(state.x, state.targetX, .18);
+      state.y = follow(state.y, state.targetY, .18);
+      state.lift = follow(state.lift, state.targetLift, .22);
+      drawPhone();
+      frame = visible && !settled() ? requestAnimationFrame(tick) : 0;
+    };
+
+    const animatePhone = () => {
+      if (frame || !visible) return;
+      lastTime = 0;
+      frame = requestAnimationFrame(tick);
+    };
+
+    const setPhoneTarget = (x, y, lift) => {
+      state.targetX = Math.max(-1, Math.min(1, x));
+      state.targetY = Math.max(-1, Math.min(1, y));
+      state.targetLift = Math.max(0, Math.min(1, lift));
+      animatePhone();
+    };
+
+    const resetPhone = () => setPhoneTarget(0, 0, 0);
+
+    phoneObject.addEventListener('load', () => {
+      connectPhoneParts();
+      drawPhone();
+    });
+    if (phoneObject.contentDocument?.documentElement) connectPhoneParts();
+
+    phoneStage.addEventListener('pointerenter', () => setPhoneTarget(.15, -.1, 1));
+    phoneStage.addEventListener('pointermove', (event) => {
+      if (event.pointerType === 'touch') return;
+      const bounds = phoneStage.getBoundingClientRect();
+      const x = ((event.clientX - bounds.left) / bounds.width) * 2 - 1;
+      const y = ((event.clientY - bounds.top) / bounds.height) * 2 - 1;
+      setPhoneTarget(x, y, 1);
+    });
+    phoneStage.addEventListener('pointerleave', resetPhone);
+    phoneStage.addEventListener('focus', () => setPhoneTarget(.35, -.2, 1));
+    phoneStage.addEventListener('blur', resetPhone);
+    phoneStage.addEventListener('keydown', (event) => {
+      const step = event.shiftKey ? .45 : .2;
+      if (event.key === 'ArrowLeft') state.targetX -= step;
+      else if (event.key === 'ArrowRight') state.targetX += step;
+      else if (event.key === 'ArrowUp') state.targetY -= step;
+      else if (event.key === 'ArrowDown') state.targetY += step;
+      else if (event.key === 'Enter' || event.key === ' ') state.targetLift = state.targetLift > .5 ? 0 : 1;
+      else if (event.key === 'Escape') {
+        state.targetX = 0;
+        state.targetY = 0;
+        state.targetLift = 0;
+      } else return;
+      event.preventDefault();
+      state.targetX = Math.max(-1, Math.min(1, state.targetX));
+      state.targetY = Math.max(-1, Math.min(1, state.targetY));
+      animatePhone();
+    });
+
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(([entry]) => {
+        visible = entry.isIntersecting;
+        if (!visible && frame) {
+          cancelAnimationFrame(frame);
+          frame = 0;
+        } else if (visible && !settled()) {
+          animatePhone();
+        }
+      }, { rootMargin: '120px' });
+      observer.observe(phoneStage);
+    }
+    reducedMotion.addEventListener?.('change', animatePhone);
+  }
+
   const hamburger = document.getElementById('hamburger');
   const menu = document.querySelector('.nav-menu');
   const menuIcon = hamburger?.querySelector('i');
